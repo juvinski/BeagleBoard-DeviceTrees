@@ -20,14 +20,6 @@
 	status = "okay";
 };
 
-&pruss_uart {
-	status = "disabled";
-};
-
-&pruss_mdio {
-	status = "disabled";
-};
-
 &pruss {
 	compatible = "ti,pruss-v2";
 	ti,pintc-offset = <0x20000>;

@@ -4,6 +4,8 @@
  *
  * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
  * Copyright (C) 2024 Robert Nelson, BeagleBoard.org Foundation
+ *
+ * Schematics: https://openbeagle.org/beagley-ai/beagley-ai
  */
 
 /dts-v1/;
@@ -12,7 +14,7 @@
 #include "k3-j722s.dtsi"
 
 / {
-	compatible = "beagle,j722s-beagley-ai", "ti,j722s";
+	compatible = "beagle,am67a-beagley-ai", "ti,j722s";
 	model = "BeagleBoard.org BeagleY-AI";
 
 	aliases {
@@ -198,18 +200,18 @@
 };
 
 &cpsw3g {
+	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&rgmii1_pins_default>, <&gbe_pmx_obsclk>;
 
 	assigned-clocks = <&k3_clks 227 0>;
 	assigned-clock-parents = <&k3_clks 227 6>;
-	status = "okay";
 };
 
 &cpsw3g_mdio {
+	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mdio_pins_default>;
-	status = "okay";
 
 	cpsw3g_phy0: ethernet-phy@0 {
 		reg = <0>;
@@ -232,8 +234,8 @@
 &main_uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart0_pins_default>;
-	bootph-all;
 	status = "okay";
+	bootph-all;
 };
 
 &mcu_pmx0 {
@@ -267,16 +269,16 @@
 	/* WKUP UART0 is used by Device Manager firmware */
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_uart0_pins_default>;
-	bootph-all;
 	status = "reserved";
+	bootph-all;
 };
 
 &wkup_i2c0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
 	clock-frequency = <400000>;
-	bootph-all;
 	status = "okay";
+	bootph-all;
 
 	tps65219: pmic@30 {
 		bootph-all;
@@ -316,14 +318,6 @@
 				regulator-always-on;
 			};
 
-			buck3_reg: buck3 {
-				regulator-name = "VDD_1V1";
-				regulator-min-microvolt = <1100000>;
-				regulator-max-microvolt = <1100000>;
-				regulator-boot-on;
-				regulator-always-on;
-			};
-
 			ldo1_reg: ldo1 {
 				regulator-name = "VDDSHV5_SDIO";
 				regulator-min-microvolt = <3300000>;
@@ -334,7 +328,11 @@
 			};
 
 			ldo2_reg: ldo2 {
-				//Regulator is left as is unused.
+				regulator-name = "VDD_1V2";
+				regulator-min-microvolt = <1200000>;
+				regulator-max-microvolt = <1200000>;
+				regulator-boot-on;
+				regulator-always-on;
 			};
 
 			ldo3_reg: ldo3 {
@@ -362,9 +360,8 @@
 	vqmmc-supply = <&vdd_sd_dv>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_mmc1_pins_default>;
-	disable-wp;
-	no-1-8-v;
-	bootph-all;
-	status = "okay";
 	ti,driver-strength-ohm = <50>;
+	disable-wp;
+	status = "okay";
+	bootph-all;
 };

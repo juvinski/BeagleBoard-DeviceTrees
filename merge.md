@@ -2,10 +2,10 @@
 
 # ti
 ```
-meld include/dt-bindings/ ~/linux-src/include/dt-bindings/
-meld src/arm/ti/omap/ ~/linux-src/arch/arm/boot/dts/ti/omap/
-meld src/arm64/ti/ ~/linux-src/arch/arm64/boot/dts/ti/
-meld src/riscv/ ~/linux-src/arch/riscv/boot/dts/
+meld include/dt-bindings/ ../normal-arm64/KERNEL/include/dt-bindings/
+meld src/arm/ti/omap/ ../normal-arm64/KERNEL/arch/arm/boot/dts/ti/omap/
+meld src/arm64/ti/ ../normal-arm64/KERNEL/arch/arm64/boot/dts/ti/
+meld src/riscv/ ../normal-arm64/KERNEL/arch/riscv/boot/dts/
 ```
 
 # linux

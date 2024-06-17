@@ -198,7 +198,7 @@ install_arch_arm64: $(ARCH_DTB) $(ARCH_DTB_OVERLAYS)
 	mkdir -p /boot/dtbs/$(KERNEL_VERSION)/ti/overlays/
 	cp -v src/arm64/ti/*.dtb /boot/dtbs/$(KERNEL_VERSION)/ti/ || true
 	cp -v src/arm64/overlays/*.dtbo /boot/dtbs/$(KERNEL_VERSION)/ti/overlays/ || true
-	cp /boot/dtbs/$(KERNEL_VERSION)/ti/k3-*.dtb /boot/firmware/ || true
+	cp /boot/dtbs/$(KERNEL_VERSION)/ti/k3-*.dtb /boot/firmware/ti/ || true
 	cp /boot/dtbs/$(KERNEL_VERSION)/ti/overlays/*.dtbo /boot/firmware/overlays/ || true
 
 RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \

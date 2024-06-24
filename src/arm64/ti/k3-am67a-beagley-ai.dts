@@ -15,6 +15,7 @@
 #include <dt-bindings/leds/common.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pwm/pwm.h>
+#include "k3-am67a-beagley-ai-pinmux.dtsi"
 
 / {
 	compatible = "beagle,am67a-beagley-ai", "ti,j722s";

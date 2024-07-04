@@ -1,5 +1,11 @@
 # merge hints
 
+# mpfs
+```
+meld include/dt-bindings/ ../normal-riscv64/KERNEL/include/dt-bindings/
+meld src/riscv/ ../normal-riscv64/KERNEL/arch/riscv/boot/dts/
+```
+
 # ti
 ```
 meld include/dt-bindings/ ../normal-arm64/KERNEL/include/dt-bindings/

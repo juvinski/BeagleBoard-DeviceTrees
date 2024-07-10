@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only OR MIT
 /*
- * DT Overlay for GPIO20 epwm1 connections within the expansion header.
+ * DT Overlay for GPIO6 and GPIO20 epwm1 connections within the expansion header.
  *
  * Copyright (C) 2023 Texas Instruments Incorporated - https://www.ti.com/
  *
@@ -17,15 +17,18 @@
 */
 &{/chosen} {
 	overlays {
-		k3-am67a-beagley-ai-pwm-epwm1-gpio20.kernel = __TIMESTAMP__;
+		k3-am67a-beagley-ai-pwm-epwm1-gpio6-gpio20.kernel = __TIMESTAMP__;
+		hat-31.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio6.23010000.0.GPIO6";
+		gpio6.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio6.23010000.0.GPIO6";
 		hat-38.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio20.23010000.1.GPIO20";
 		gpio20.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio20.23010000.1.GPIO20";
 	};
 };
 
 &main_pmx0 {
-	hat_38_pwm: hat-38-pwm-pins {
+	gpio6_gpio20_pwm: gpio6-gpio20-pwm-pins {
 		pinctrl-single,pins = <
+			J722S_IOPAD(0x1BC, PIN_OUTPUT, 2) /* (D20) SPI0_CLK.EHRPWM1_A */
 			J722S_IOPAD(0x1A0, PIN_OUTPUT, 6) /* (F23) MCASP0_AXR0.EHRPWM1_B */
 		>;
 	};
@@ -33,6 +36,6 @@
 
 &epwm1 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&hat_38_pwm>;
+	pinctrl-0 = <&gpio6_gpio20_pwm>;
 	status = "okay";
 };

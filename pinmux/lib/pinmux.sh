@@ -252,6 +252,7 @@ find_pin () {
 		GPIO*)
 			type="gpio"
 			export_dts="enable"
+			echo "${cro_a}, ${name_a}" >> ${file}-pins.csv
 			;;
 		MCASP*)
 			type="audio"

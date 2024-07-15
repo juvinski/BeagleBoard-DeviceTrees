@@ -551,8 +551,18 @@
 		/* Proxy 0 addressing */
 		reg = <0x0 0x11c000 0x0 0x2b4>;
 		#pinctrl-cells = <1>;
+//		pinctrl-single,gpio-range =
+//			<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
+//			<&main_pmx0_range 33 92 PIN_GPIO_RANGE_IOPAD>,
+//			<&main_pmx0_range 137 5 PIN_GPIO_RANGE_IOPAD>,
+//			<&main_pmx0_range 143 3 PIN_GPIO_RANGE_IOPAD>,
+//			<&main_pmx0_range 149 2 PIN_GPIO_RANGE_IOPAD>;
 		pinctrl-single,register-width = <32>;
 		pinctrl-single,function-mask = <0xffffffff>;
+
+//		main_pmx0_range: gpio-range {
+//			#pinctrl-single,gpio-range-cells = <3>;
+//		};
 	};
 
 	/* TIMERIO pad input CTRLMMR_TIMER*_CTRL registers */

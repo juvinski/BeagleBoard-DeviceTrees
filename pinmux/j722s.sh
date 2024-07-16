@@ -25,7 +25,14 @@ echo "" >${file}-main-pinmux.txt
 echo "" >${file}-mcu-pinmux.txt
 echo "" >${file}-pins.csv
 
-offset=4000
+number_pins=0
+number_holes=0
+
+pinctrl_single_pin_base=0
+gpio_ranges_line_start=0
+
+offset=4000;
+echo "#GPIO0," >> ${file}-pins.csv
 label="GPIO0_0" ; ball="L24" ; sch=${label}; find_pin
 label="GPIO0_1" ; ball="L23" ; sch=${label}; find_pin
 label="GPIO0_2" ; ball="L22" ; sch=${label}; find_pin
@@ -58,7 +65,7 @@ label="GPIO0_28" ; ball="V24" ; sch=${label}; find_pin
 label="GPIO0_29" ; ball="V22" ; sch=${label}; find_pin
 label="GPIO0_30" ; ball="V23" ; sch=${label}; find_pin
 label="GPIO0_31" ; ball="T23" ; sch=${label}; find_pin
-echo "32," >> ${file}-pins.csv
+found_hole ; mark_hole
 label="GPIO0_32" ; ball="N21" ; sch=${label}; find_pin
 label="GPIO0_33" ; ball="N22" ; sch=${label}; find_pin
 label="GPIO0_34" ; ball="N23" ; sch=${label}; find_pin
@@ -97,7 +104,7 @@ label="GPIO0_66" ; ball="H27" ; sch=${label}; find_pin
 label="GPIO0_67" ; ball="G27" ; sch=${label}; find_pin
 label="GPIO0_68" ; ball="G26" ; sch=${label}; find_pin
 label="GPIO0_69" ; ball="H26" ; sch=${label}; find_pin
-echo "71," >> ${file}-pins.csv
+found_hole ; mark_hole
 label="GPIO0_70" ; ball="F27" ; sch=${label}; find_pin
 label="GPIO0_71" ; ball="F26" ; sch=${label}; find_pin
 label="GPIO0_72" ; ball="H21" ; sch=${label}; find_pin
@@ -115,18 +122,12 @@ label="GPIO0_83" ; ball="AE24" ; sch=${label}; find_pin
 label="GPIO0_84" ; ball="AE26" ; sch=${label}; find_pin
 label="GPIO0_85" ; ball="AD25" ; sch=${label}; find_pin
 label="GPIO0_86" ; ball="AC24" ; sch=${label}; find_pin
-echo "89," >> ${file}-pins.csv
-echo "90," >> ${file}-pins.csv
-echo "91," >> ${file}-pins.csv
-echo "92," >> ${file}-pins.csv
-echo "93," >> ${file}-pins.csv
-echo "94," >> ${file}-pins.csv
-echo "95," >> ${file}-pins.csv
-echo "96," >> ${file}-pins.csv
-echo "97," >> ${file}-pins.csv
-echo "98," >> ${file}-pins.csv
-echo "99," >> ${file}-pins.csv
-echo "100," >> ${file}-pins.csv
+found_hole
+
+pinctrl_single_pin_base=101
+gpio_ranges_line_start=7
+
+echo "#GPIO1," >> ${file}-pins.csv
 label="GPIO1_7" ; ball="A25" ; sch=${label}; find_pin
 label="GPIO1_8" ; ball="A26" ; sch=${label}; find_pin
 label="GPIO1_9" ; ball="B25" ; sch=${label}; find_pin
@@ -152,33 +153,45 @@ label="GPIO1_28" ; ball="C24" ; sch=${label}; find_pin
 label="GPIO1_29" ; ball="A22" ; sch=${label}; find_pin
 label="GPIO1_30" ; ball="A23" ; sch=${label}; find_pin
 label="GPIO1_31" ; ball="B23" ; sch=${label}; find_pin
-echo "126," >> ${file}-pins.csv
-echo "127," >> ${file}-pins.csv
-echo "128," >> ${file}-pins.csv
-echo "129," >> ${file}-pins.csv
-echo "130," >> ${file}-pins.csv
-echo "131," >> ${file}-pins.csv
-echo "132," >> ${file}-pins.csv
-echo "133," >> ${file}-pins.csv
-echo "134," >> ${file}-pins.csv
-echo "135," >> ${file}-pins.csv
-echo "136," >> ${file}-pins.csv
+found_hole ; mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+
+pinctrl_single_pin_base=137
+gpio_ranges_line_start=42
+
 label="GPIO1_42" ; ball="H25" ; sch=${label}; find_pin
 label="GPIO1_43" ; ball="J23" ; sch=${label}; find_pin
 label="GPIO1_44" ; ball="H20" ; sch=${label}; find_pin
 label="GPIO1_45" ; ball="H23" ; sch=${label}; find_pin
 label="GPIO1_46" ; ball="H24" ; sch=${label}; find_pin
-echo "142," >> ${file}-pins.csv
-label="GPIO1_47" ; ball="H22" ; sch=${label}; find_pin
-label="GPIO1_48" ; ball="B24" ; sch=${label}; find_pin
-label="GPIO1_49" ; ball="A24" ; sch=${label}; find_pin
-echo "146," >> ${file}-pins.csv
-echo "147," >> ${file}-pins.csv
-echo "148," >> ${file}-pins.csv
+found_hole ; mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+
+pinctrl_single_pin_base=150
+gpio_ranges_line_start=50
+
 label="GPIO1_50" ; ball="E25" ; sch=${label}; find_pin
 label="GPIO1_51" ; ball="B27" ; sch=${label}; find_pin
+found_hole
 
-offset=4000
+pinctrl_single_pin_base=0
+gpio_ranges_line_start=0
+
+echo "#MCU_GPIO0," >> ${file}-pins.csv
 label="MCU_GPIO0_0" ; ball="C12" ; sch=${label}; find_pin
 label="MCU_GPIO0_1" ; ball="A10" ; sch=${label}; find_pin
 label="MCU_GPIO0_2" ; ball="A9" ; sch=${label}; find_pin
@@ -200,19 +213,27 @@ label="MCU_GPIO0_17" ; ball="B13" ; sch=${label}; find_pin
 label="MCU_GPIO0_18" ; ball="E11" ; sch=${label}; find_pin
 label="MCU_GPIO0_19" ; ball="B9" ; sch=${label}; find_pin
 label="MCU_GPIO0_20" ; ball="D11" ; sch=${label}; find_pin
-echo "21," >> ${file}-pins.csv
-echo "22," >> ${file}-pins.csv
+found_hole_mcu ; mark_hole
+mark_hole
+
+pinctrl_single_pin_base=23
+gpio_ranges_line_start=21
+
 label="MCU_GPIO0_21" ; ball="E13" ; sch=${label}; find_pin
-echo "24," >> ${file}-pins.csv
-echo "25," >> ${file}-pins.csv
-echo "26," >> ${file}-pins.csv
-echo "27," >> ${file}-pins.csv
-echo "28," >> ${file}-pins.csv
-echo "29," >> ${file}-pins.csv
-echo "30," >> ${file}-pins.csv
-echo "31," >> ${file}-pins.csv
+found_hole_mcu ; mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+mark_hole
+
+pinctrl_single_pin_base=32
+gpio_ranges_line_start=22
 label="MCU_GPIO0_22" ; ball="A8" ; sch=${label}; find_pin
 label="MCU_GPIO0_23" ; ball="F12" ; sch=${label}; find_pin
+found_hole_mcu
 
 rm ${file}-pinmux.txt || true
 rm ${file}-main-pinmux.txt || true

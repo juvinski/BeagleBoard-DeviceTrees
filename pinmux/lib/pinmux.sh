@@ -256,7 +256,8 @@ find_pin () {
 			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
 			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
 			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
-			echo "${register_count}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			number_pins=$(bc <<< "$number_pins + 1")
+			echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
 			;;
 		MCASP*)
 			type="audio"
@@ -270,7 +271,8 @@ find_pin () {
 			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
 			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
 			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
-			echo "${register_count}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			number_pins=$(bc <<< "$number_pins + 1")
+			echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
 		;;
 		MCU_I2C*_S*|WKUP_I2C*_S*)
 			iopad="${mcu_iopad}"
@@ -428,6 +430,38 @@ find_pin () {
 			fi
 		fi
 	done
+}
+
+mark_hole () {
+	register_count=$(bc <<< "$register_count + 1")
+	echo "${register_count}, HOLE" >> ${file}-pins.csv
+}
+
+found_hole () {
+	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
+	echo "<&main_pmx0_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins.csv
+
+	#    gpio-ranges = <&foo 0 20 10>, <&bar 10 50 20>;
+	#
+	#This means:
+	#- pins 20..29 on pin controller "foo" is mapped to GPIO line 0..9 and
+	#- pins 50..69 on pin controller "bar" is mapped to GPIO line 10..29
+	echo "<&main_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins.csv
+
+	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
+	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")
+	number_holes=$(bc <<< "$number_holes + 1")
+	number_pins=0
+}
+
+found_hole_mcu () {
+	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
+	echo "<&mcu_pmx_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins.csv
+
+	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
+	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")
+	number_holes=$(bc <<< "$number_holes + 1")
+	number_pins=0
 }
 
 if [ ! -f ${json_file} ] ; then

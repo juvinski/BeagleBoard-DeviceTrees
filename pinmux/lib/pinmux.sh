@@ -252,7 +252,11 @@ find_pin () {
 		GPIO*)
 			type="gpio"
 			export_dts="enable"
-			echo "${cro_a}, ${name_a}" >> ${file}-pins.csv
+			pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
+			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
+			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
+			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
+			echo "${register_count}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
 			;;
 		MCASP*)
 			type="audio"
@@ -262,6 +266,11 @@ find_pin () {
 			type="gpio"
 			core="mcu"
 			export_dts="enable"
+			pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
+			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
+			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
+			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
+			echo "${register_count}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
 		;;
 		MCU_I2C*_S*|WKUP_I2C*_S*)
 			iopad="${mcu_iopad}"
@@ -283,6 +292,9 @@ find_pin () {
 			unset print_dts
 		;;
 		MCU_UART*_*TSn)
+			unset print_dts
+		;;
+		OLDI0_*)
 			unset print_dts
 		;;
 		SPI0*)

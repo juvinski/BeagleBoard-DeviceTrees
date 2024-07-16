@@ -32,7 +32,7 @@ pinctrl_single_pin_base=0
 gpio_ranges_line_start=0
 
 offset=4000;
-echo "#GPIO0," >> ${file}-pins.csv
+echo "#GPIO0," > ${file}-pins.csv
 label="GPIO0_0" ; ball="L24" ; sch=${label}; find_pin
 label="GPIO0_1" ; ball="L23" ; sch=${label}; find_pin
 label="GPIO0_2" ; ball="L22" ; sch=${label}; find_pin

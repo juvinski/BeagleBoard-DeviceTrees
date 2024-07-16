@@ -441,14 +441,14 @@ mark_hole () {
 
 found_hole () {
 	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
-	echo "#<&main_pmx0_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins.csv
+	echo "#<&main_pmx0_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio.txt
 
 	#    gpio-ranges = <&foo 0 20 10>, <&bar 10 50 20>;
 	#
 	#This means:
 	#- pins 20..29 on pin controller "foo" is mapped to GPIO line 0..9 and
 	#- pins 50..69 on pin controller "bar" is mapped to GPIO line 10..29
-	echo "#<&main_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins.csv
+	echo "#<&main_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins-gpio.txt
 
 	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
 	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")
@@ -458,7 +458,7 @@ found_hole () {
 
 found_hole_mcu () {
 	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
-	echo "#<&mcu_pmx_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins.csv
+	echo "#<&mcu_pmx_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio.txt
 
 	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
 	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")

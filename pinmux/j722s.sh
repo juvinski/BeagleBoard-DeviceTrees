@@ -127,6 +127,7 @@ found_hole
 pinctrl_single_pin_base=101
 gpio_ranges_line_start=7
 
+echo "" >> ${file}-pins.csv
 echo "#GPIO1," >> ${file}-pins.csv
 label="GPIO1_7" ; ball="A25" ; sch=${label}; find_pin
 label="GPIO1_8" ; ball="A26" ; sch=${label}; find_pin
@@ -191,6 +192,7 @@ found_hole
 pinctrl_single_pin_base=0
 gpio_ranges_line_start=0
 
+echo "" >> ${file}-pins.csv
 echo "#MCU_GPIO0," >> ${file}-pins.csv
 label="MCU_GPIO0_0" ; ball="C12" ; sch=${label}; find_pin
 label="MCU_GPIO0_1" ; ball="A10" ; sch=${label}; find_pin

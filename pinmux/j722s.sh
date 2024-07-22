@@ -176,10 +176,10 @@ label="GPIO1_44" ; ball="H20" ; sch=${label}; find_pin
 label="GPIO1_45" ; ball="H23" ; sch=${label}; find_pin
 label="GPIO1_46" ; ball="H24" ; sch=${label}; find_pin
 found_hole ; mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
+label="GPIO1_47" ; ball="H22" ; sch=${label}; find_pin
+label="GPIO1_48" ; ball="B24" ; sch=${label}; find_pin
+label="GPIO1_49" ; ball="A24" ; sch=${label}; find_pin
+found_hole ; mark_hole
 mark_hole
 mark_hole
 

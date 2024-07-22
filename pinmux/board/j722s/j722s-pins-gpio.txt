@@ -1,3 +1,4 @@
+
 #<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
 #<&main_pmx0 0 0 32>,
 #<&main_pmx0_range 33 38 PIN_GPIO_RANGE_IOPAD>,
@@ -8,6 +9,8 @@
 #<&main_pmx0 7 101 25>,
 #<&main_pmx0_range 137 5 PIN_GPIO_RANGE_IOPAD>,
 #<&main_pmx0 42 137 5>,
+#<&main_pmx0_range 143 3 PIN_GPIO_RANGE_IOPAD>,
+#<&main_pmx0 47 143 3>,
 #<&main_pmx0_range 149 2 PIN_GPIO_RANGE_IOPAD>,
 #<&main_pmx0 50 149 2>,
 #<&mcu_pmx_range 0 21 PIN_GPIO_RANGE_IOPAD>,

@@ -329,6 +329,12 @@ find_pin () {
 			type="gpio"
 			core="mcu"
 			export_dts="enable"
+			pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
+			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
+			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
+			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
+			number_pins=$(bc <<< "$number_pins + 1")
+			echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
 		;;
 		WKUP_UART*_TXD)
 			iopad="${mcu_iopad}"
@@ -441,14 +447,14 @@ mark_hole () {
 
 found_hole () {
 	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
-	echo "#<&main_pmx0_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio.txt
+	echo "#<&main_pmx0_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio-main-a.txt
 
 	#    gpio-ranges = <&foo 0 20 10>, <&bar 10 50 20>;
 	#
 	#This means:
 	#- pins 20..29 on pin controller "foo" is mapped to GPIO line 0..9 and
 	#- pins 50..69 on pin controller "bar" is mapped to GPIO line 10..29
-	echo "#<&main_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins-gpio.txt
+	echo "#<&main_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins-gpio-main-b.txt
 
 	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
 	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")
@@ -458,14 +464,14 @@ found_hole () {
 
 found_hole_mcu () {
 	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
-	echo "#<&mcu_pmx_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio.txt
+	echo "#<&mcu_pmx_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio-mcu-a.txt
 
 	#    gpio-ranges = <&foo 0 20 10>, <&bar 10 50 20>;
 	#
 	#This means:
 	#- pins 20..29 on pin controller "foo" is mapped to GPIO line 0..9 and
 	#- pins 50..69 on pin controller "bar" is mapped to GPIO line 10..29
-	echo "#<&mcu_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins-gpio.txt
+	echo "#<&mcu_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins-gpio-mcu-b.txt
 
 	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
 	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")
@@ -473,6 +479,53 @@ found_hole_mcu () {
 	number_pins=0
 }
 
+found_hole_wkup () {
+	#pinctrl-single,gpio-range = pin base, nr pins & gpio function
+	echo "#<&wkup_pmx_range ${pinctrl_single_pin_base} ${number_pins} PIN_GPIO_RANGE_IOPAD>," >> ${file}-pins-gpio-mcu-a.txt
+
+	#    gpio-ranges = <&foo 0 20 10>, <&bar 10 50 20>;
+	#
+	#This means:
+	#- pins 20..29 on pin controller "foo" is mapped to GPIO line 0..9 and
+	#- pins 50..69 on pin controller "bar" is mapped to GPIO line 10..29
+	echo "#<&wkup_pmx0 ${gpio_ranges_line_start} ${pinctrl_single_pin_base} ${number_pins}>," >> ${file}-pins-gpio-mcu-b.txt
+
+	pinctrl_single_pin_base=$(bc <<< "$pinctrl_single_pin_base + $number_pins + 1")
+	gpio_ranges_line_start=$(bc <<< "$gpio_ranges_line_start + $number_pins")
+	number_holes=$(bc <<< "$number_holes + 1")
+	number_pins=0
+}
+
+reset_gpio () {
+	if [ -f ${file}-pins-gpio-main-a.txt ] ; then
+		rm ${file}-pins-gpio-main-a.txt || true
+	fi
+	if [ -f ${file}-pins-gpio-main-b.txt ] ; then
+		rm ${file}-pins-gpio-main-b.txt || true
+	fi
+	if [ -f ${file}-pins-gpio-mcu-a.txt ] ; then
+		rm ${file}-pins-gpio-mcu-a.txt || true
+	fi
+	if [ -f ${file}-pins-gpio-mcu-b.txt ] ; then
+		rm ${file}-pins-gpio-mcu-b.txt || true
+	fi
+}
+
+finalize_gpio () {
+	echo "# main_gpio" > ${file}-pins-gpio.txt
+	cat ${file}-pins-gpio-main-a.txt >> ${file}-pins-gpio.txt
+	echo "" >> ${file}-pins-gpio.txt
+	cat ${file}-pins-gpio-main-b.txt >> ${file}-pins-gpio.txt
+	echo "" >> ${file}-pins-gpio.txt
+	echo "# mcu_gpio" >> ${file}-pins-gpio.txt
+	cat ${file}-pins-gpio-mcu-a.txt >> ${file}-pins-gpio.txt
+	echo "" >> ${file}-pins-gpio.txt
+	cat ${file}-pins-gpio-mcu-b.txt >> ${file}-pins-gpio.txt
+	echo "" >> ${file}-pins-gpio.txt
+	reset_gpio
+}
+
 if [ ! -f ${json_file} ] ; then
 	get_json_pkg
 fi
+#

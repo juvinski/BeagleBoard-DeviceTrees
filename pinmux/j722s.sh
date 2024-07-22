@@ -20,10 +20,11 @@ file="./board/${board}/j722s"
 k3file="./board/${board}/j722s"
 
 echo "" >${file}-pins.txt
-echo "" > ${file}-pinmux.txt
+echo "" >${file}-pinmux.txt
 echo "" >${file}-main-pinmux.txt
 echo "" >${file}-mcu-pinmux.txt
 echo "" >${file}-pins.csv
+echo "" >${file}-pins-gpio.txt
 
 number_pins=0
 number_holes=0
@@ -182,7 +183,7 @@ mark_hole
 mark_hole
 mark_hole
 
-pinctrl_single_pin_base=150
+pinctrl_single_pin_base=149
 gpio_ranges_line_start=50
 
 label="GPIO1_50" ; ball="E25" ; sch=${label}; find_pin

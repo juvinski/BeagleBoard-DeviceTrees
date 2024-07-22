@@ -28,11 +28,11 @@ reset_gpio
 
 number_pins=0
 number_holes=0
+offset=0;
 
 pinctrl_single_pin_base=0
 gpio_ranges_line_start=0
 
-offset=0;
 echo "#GPIO0," > ${file}-pins.csv
 label="GPIO0_0"; ball="AC18"; sch=${label}; find_pin
 label="GPIO0_1"; ball="AC23"; sch=${label}; find_pin
@@ -239,6 +239,11 @@ label="WKUP_GPIO0_12"; ball="G29"; sch=${label}; find_pin
 label="WKUP_GPIO0_13"; ball="H28"; sch=${label}; find_pin
 label="WKUP_GPIO0_14"; ball="H29"; sch=${label}; find_pin
 label="WKUP_GPIO0_15"; ball="J27"; sch=${label}; find_pin
+found_hole_wkup
+
+pinctrl_single_pin_base=0
+gpio_ranges_line_start=16
+
 label="WKUP_GPIO0_16"; ball="E20"; sch=${label}; find_pin
 label="WKUP_GPIO0_17"; ball="C21"; sch=${label}; find_pin
 label="WKUP_GPIO0_18"; ball="D21"; sch=${label}; find_pin
@@ -283,22 +288,10 @@ label="WKUP_GPIO0_56"; ball="J29"; sch=${label}; find_pin
 label="WKUP_GPIO0_57"; ball="J28"; sch=${label}; find_pin
 label="WKUP_GPIO0_58"; ball="D29"; sch=${label}; find_pin
 label="WKUP_GPIO0_59"; ball="C29"; sch=${label}; find_pin
-found_hole_wkup ; mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
-mark_hole
+found_hole_wkup
+
+pinctrl_single_pin_base=60
+gpio_ranges_line_start=60
 
 label="WKUP_GPIO0_60"; ball="D26"; sch=${label}; find_pin
 label="WKUP_GPIO0_61"; ball="D25"; sch=${label}; find_pin

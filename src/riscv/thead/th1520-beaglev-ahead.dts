@@ -24,6 +24,7 @@
 		serial3 = &uart3;
 		serial4 = &uart4;
 		serial5 = &uart5;
+		spi0 = &spi0;
 	};
 
 	chosen {
@@ -51,6 +52,10 @@
 
 &sdhci_clk {
 	clock-frequency = <198000000>;
+};
+
+&spi_clk {
+	clock-frequency = <396000000>;
 };
 
 &uart_sclk {
@@ -98,5 +103,9 @@
 };
 
 &uart0 {
+	status = "okay";
+};
+
+&spi0 {
 	status = "okay";
 };

@@ -307,7 +307,6 @@
 	status = "okay";
 
 	tps65219: pmic@30 {
-		bootph-all;
 		compatible = "ti,tps65219";
 		reg = <0x30>;
 		buck1-supply = <&vsys_5v0>;
@@ -326,6 +325,8 @@
 
 		system-power-controller;
 		ti,power-button;
+
+		bootph-all;
 
 		regulators {
 			buck1_reg: buck1 {

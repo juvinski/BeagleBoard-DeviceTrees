@@ -102,6 +102,7 @@
 		gpios = <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
 		states = <1800000 0x0>,
 			 <3300000 0x1>;
+		bootph-all;
 	};
 
 	vsys_io_1v8: regulator-vsys-io-1v8 {

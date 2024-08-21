@@ -226,18 +226,18 @@
 };
 
 &cpsw3g {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&rgmii1_pins_default>, <&gbe_pmx_obsclk>;
 
 	assigned-clocks = <&k3_clks 227 0>;
 	assigned-clock-parents = <&k3_clks 227 6>;
+	status = "okay";
 };
 
 &cpsw3g_mdio {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mdio_pins_default>;
+	status = "okay";
 
 	cpsw3g_phy0: ethernet-phy@0 {
 		reg = <0>;
@@ -260,8 +260,8 @@
 &main_uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart0_pins_default>;
-	status = "okay";
 	bootph-all;
+	status = "okay";
 };
 
 &mcu_pmx0 {
@@ -295,16 +295,16 @@
 	/* WKUP UART0 is used by Device Manager firmware */
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_uart0_pins_default>;
-	status = "reserved";
 	bootph-all;
+	status = "reserved";
 };
 
 &wkup_i2c0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
 	clock-frequency = <100000>;
-	status = "okay";
 	bootph-all;
+	status = "okay";
 
 	tps65219: pmic@30 {
 		bootph-all;
@@ -401,6 +401,9 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_mmc1_pins_default>;
 	disable-wp;
-	status = "okay";
+	cd-gpios = <&main_gpio1 48 GPIO_ACTIVE_LOW>;
+	cd-debounce-delay-ms = <100>;
+	ti,fails-without-test-cd;
 	bootph-all;
+	status = "okay";
 };

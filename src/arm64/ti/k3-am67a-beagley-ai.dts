@@ -345,10 +345,6 @@
 				regulator-always-on;
 			};
 
-			buck3_reg: buck3 {
-				/* Regulator is left as is unused */
-			};
-
 			ldo1_reg: ldo1 {
 				regulator-name = "VDDSHV5_SDIO";
 				regulator-min-microvolt = <3300000>;

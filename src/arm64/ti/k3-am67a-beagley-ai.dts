@@ -55,7 +55,6 @@
 			reg = <0x00 0xa0100000 0x00 0xf00000>;
 			no-map;
 		};
-
 	};
 
 	vsys_5v0: regulator-1 {
@@ -78,7 +77,7 @@
 		regulator-boot-on;
 	};
 
-	vdd_mmc1: regulator-mmc1 {
+	vdd_mmc1: regulator-3 {
 		compatible = "regulator-fixed";
 		regulator-name = "vdd_mmc1";
 		pinctrl-names = "default";
@@ -91,7 +90,7 @@
 		bootph-all;
 	};
 
-	vdd_sd_dv: regulator-TLV71033 {
+	vdd_sd_dv: regulator-4 {
 		compatible = "regulator-gpio";
 		regulator-name = "tlv71033";
 		pinctrl-names = "default";
@@ -106,7 +105,7 @@
 		bootph-all;
 	};
 
-	vsys_io_1v8: regulator-vsys-io-1v8 {
+	vsys_io_1v8: regulator-5 {
 		compatible = "regulator-fixed";
 		regulator-name = "vsys_io_1v8";
 		regulator-min-microvolt = <1800000>;
@@ -115,7 +114,7 @@
 		regulator-boot-on;
 	};
 
-	vsys_io_1v2: regulator-vsys-io-1v2 {
+	vsys_io_1v2: regulator-6 {
 		compatible = "regulator-fixed";
 		regulator-name = "vsys_io_1v2";
 		regulator-min-microvolt = <1200000>;
@@ -131,21 +130,19 @@
 
 		led-0 {
 			gpios = <&main_gpio0 11 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "default-off";
 			default-state = "off";
 		};
 
 		led-1 {
 			gpios = <&main_gpio0 12 GPIO_ACTIVE_HIGH>;
-			function = LED_FUNCTION_HEARTBEAT;
 			linux,default-trigger = "heartbeat";
+			function = LED_FUNCTION_HEARTBEAT;
 			default-state = "on";
 		};
 	};
 };
 
 &main_pmx0 {
-
 	main_i2c0_pins_default: main-i2c0-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (D23) I2C0_SCL */
@@ -228,10 +225,7 @@
 
 &cpsw3g {
 	pinctrl-names = "default";
-	pinctrl-0 = <&rgmii1_pins_default>, <&gbe_pmx_obsclk>;
-
-	assigned-clocks = <&k3_clks 227 0>;
-	assigned-clock-parents = <&k3_clks 227 6>;
+	pinctrl-0 = <&rgmii1_pins_default>;
 	status = "okay";
 };
 
@@ -266,7 +260,6 @@
 };
 
 &mcu_pmx0 {
-
 	wkup_uart0_pins_default: wkup-uart0-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x02c, PIN_INPUT, 0)	/* (C7) WKUP_UART0_CTSn */
@@ -283,12 +276,6 @@
 			J722S_MCU_IOPAD(0x050, PIN_INPUT_PULLUP, 0)	/* (C6) WKUP_I2C1_SDA */
 		>;
 		bootph-all;
-	};
-
-	gbe_pmx_obsclk: gbe-pmx-obsclk-default-pins {
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x0004, PIN_OUTPUT, 1) /* (A10) MCU_SPI0_CS1.MCU_OBSCLK0 */
-		>;
 	};
 };
 
@@ -324,9 +311,9 @@
 		interrupt-controller;
 		#interrupt-cells = <1>;
 
+		bootph-all;
 		system-power-controller;
 		ti,power-button;
-		bootph-all;
 
 		regulators {
 			buck1_reg: buck1 {
@@ -400,7 +387,7 @@
 	disable-wp;
 	cd-gpios = <&main_gpio1 48 GPIO_ACTIVE_LOW>;
 	cd-debounce-delay-ms = <100>;
-	ti,fails-without-test-cd;
 	bootph-all;
+	ti,fails-without-test-cd;
 	status = "okay";
 };

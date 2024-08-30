@@ -46,32 +46,8 @@
 	clock-frequency = <32768>;
 };
 
-&apb_clk {
-	clock-frequency = <62500000>;
-};
-
-&sdhci_clk {
-	clock-frequency = <198000000>;
-};
-
-&spi_clk {
-	clock-frequency = <396000000>;
-};
-
-&uart_sclk {
-	clock-frequency = <100000000>;
-};
-
 &dmac0 {
 	status = "okay";
-};
-
-&gmac_clk {
-	clock-frequency = <500000000>;
-};
-
-&gmac_axi_clk {
-	clock-frequency = <100000000>;
 };
 
 &mdio0 {

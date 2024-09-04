@@ -271,6 +271,13 @@
 		#pinctrl-cells = <1>;
 		pinctrl-single,register-width = <32>;
 		pinctrl-single,function-mask = <0xffffffff>;
+		pinctrl-single,gpio-range =
+			<&main_pmx0_range 0 32 (PIN_INPUT | PIN_GPIO_MUX_MODE)>,
+			<&main_pmx0_range 33 92 (PIN_INPUT | PIN_GPIO_MUX_MODE)>,
+			<&main_pmx0_range 137 5 (PIN_INPUT | PIN_GPIO_MUX_MODE)>,
+			<&main_pmx0_range 143 3 (PIN_INPUT | PIN_GPIO_MUX_MODE)>,
+			<&main_pmx0_range 149 2 (PIN_INPUT | PIN_GPIO_MUX_MODE)>;
+
 		/*
 		 * pinctrl IP DOES NOT give any functional IRQs when a
 		 * system is in active state. This IRQ is only a dummy IRQ
@@ -285,6 +292,10 @@
 		interrupt-controller;
 		#interrupt-cells = <1>;
 		bootph-all;
+
+		main_pmx0_range: gpio-range {
+			#pinctrl-single,gpio-range-cells = <3>;
+		};
 	};
 
 	main_esm: esm@420000 {

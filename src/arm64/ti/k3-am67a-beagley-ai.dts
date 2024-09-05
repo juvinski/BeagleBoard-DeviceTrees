@@ -322,6 +322,8 @@
 };
 
 &main_pmx0 {
+
+	/delete-property/ interrupts;
 	main_i2c0_pins_default: main-i2c0-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (D23) I2C0_SCL */
@@ -1091,6 +1093,18 @@ csi0_i2c: &main_i2c2 {
 	};
 };
 
+&main_timer0 {
+	status = "reserved";
+};
+
+&main_timer1 {
+	status = "reserved";
+};
+
+&main_timer2 {
+	status = "reserved";
+};
+
 &wkup_r5fss0 {
 	status = "okay";
 };
@@ -1226,6 +1240,10 @@ csi0_i2c: &main_i2c2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_dpi_pins_default>;
 
+	clocks = <&k3_clks 232 8>,
+		 <&k3_clks 232 0>,
+		 <&k3_clks 232 4>;
+
 	assigned-clocks = <&k3_clks 241 0>,	/* DSS1-VP0 */
 			  <&k3_clks 240 0>,	/* DSS1-VP1 */
 			  <&k3_clks 245 0>;	/* DPI Output */
@@ -1236,9 +1254,6 @@ csi0_i2c: &main_i2c2 {
 };
 
 &dss1_ports {
-	#address-cells = <1>;
-	#size-cells = <0>;
-
 	/* DSS1-VP1: DPI/HDMI Output */
 	port@0 {
 		reg = <0>;
@@ -1263,6 +1278,4 @@ csi0_i2c: &main_i2c2 {
 	       0 0 0 0
 	       0 0 0 0
 	>;
-	tx-num-evt = <32>;
-	rx-num-evt = <32>;
 };

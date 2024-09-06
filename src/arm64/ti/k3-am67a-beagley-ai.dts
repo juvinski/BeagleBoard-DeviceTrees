@@ -678,7 +678,6 @@
 	//pinctrl-0 = <&main_uart1_pins_default>;
 	bootph-all;
 	status = "okay";
-
 };
 
 &main_uart6 {

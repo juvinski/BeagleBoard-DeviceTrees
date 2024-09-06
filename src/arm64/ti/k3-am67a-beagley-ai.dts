@@ -1027,7 +1027,7 @@ csi0_i2c: &main_i2c2 {
 	#size-cells = <0>;
 	status = "okay";
 
-	cc33xx: cc33xx@2 {
+	cc33xx: cc33xx@0 {
 		compatible = "ti,cc3301";
 		reg = <2>;
 		pinctrl-names = "default";

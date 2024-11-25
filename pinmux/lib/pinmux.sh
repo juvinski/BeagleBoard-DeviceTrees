@@ -34,7 +34,7 @@ get_json_pkg () {
 	mkdir tmp
 	./${wfile} --unattendedmodeui none --mode unattended --prefix ./tmp
 	tree ./tmp/dist/deviceData/ | grep AM62
-	exit 2
+	#exit 2
 	cp -v ./tmp/dist/deviceData/${json_dir}/${json_file} ./
 	tree -d ./tmp/dist/deviceData/ | grep -v templates
 	rm -rf ./tmp/ || true

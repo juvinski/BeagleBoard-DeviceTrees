@@ -109,9 +109,58 @@
 			 <3300000 0x1>;
 		bootph-all;
 	};
+
+	leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&led_pins_default>;
+
+		led-0 {
+			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "heartbeat";
+			function = LED_FUNCTION_HEARTBEAT;
+			default-state = "on";
+		};
+
+		led-1 {
+			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+			//linux,default-trigger = "disk-activity";
+			//function = LED_FUNCTION_DISK_ACTIVITY;
+			//default-state = "on";
+			linux,default-trigger = "heartbeat";
+			function = LED_FUNCTION_HEARTBEAT;
+			default-state = "on";
+		};
+
+		led-2 {
+			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
+			//function = LED_FUNCTION_CPU;
+			linux,default-trigger = "heartbeat";
+			function = LED_FUNCTION_HEARTBEAT;
+			default-state = "on";
+		};
+
+		led-3 {
+			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
+			//function = LED_FUNCTION_LAN;
+			linux,default-trigger = "heartbeat";
+			function = LED_FUNCTION_HEARTBEAT;
+			default-state = "on";
+		};
+	};
 };
 
 &main_pmx0 {
+	led_pins_default: led-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x000c, PIN_OUTPUT, 7) /* (E25) OSPI0_D0.GPIO0_3 */
+			AM62X_IOPAD(0x0010, PIN_OUTPUT, 7) /* (G24) OSPI0_D1.GPIO0_4 */
+			AM62X_IOPAD(0x0014, PIN_OUTPUT, 7) /* (F25) OSPI0_D2.GPIO0_5 */
+			AM62X_IOPAD(0x0018, PIN_OUTPUT, 7) /* (F24) OSPI0_D3.GPIO0_6 */
+		>;
+		bootph-all;
+	};
+
 	/* First pad number is ALW package and second is AMC package */
 	main_uart0_pins_default: main-uart0-default-pins {
 		pinctrl-single,pins = <

@@ -254,6 +254,15 @@
 			AM62X_IOPAD(0x0180, PIN_INPUT, 7) /* (AD23) RGMII2_RXC.GPIO1_2 */
 		>;
 	};
+
+	main_spi2_pins_gpio: main-spi2-gpio-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0194, PIN_INPUT, 7) /* (B19) MCASP0_AXR3.GPIO1_7 */
+			AM62X_IOPAD(0x0198, PIN_INPUT, 7) /* (A19) MCASP0_AXR2.GPIO1_8 */
+			AM62X_IOPAD(0x01ac, PIN_INPUT, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
+			AM62X_IOPAD(0x01b0, PIN_INPUT, 7) /* (A20) MCASP0_ACLKR.GPIO1_14 */
+		>;
+	};
 };
 
 &main_gpio0 {
@@ -299,9 +308,9 @@
 	status = "okay";
 	gpio-line-names = "", "", "P1_34",	/* 0-2 */
 			  "", "", "",	/* 3-5 */
-			  "", "", "",	/* 6-8 */
+			  "", "P1_10", "P1_12",	/* 6-8 */
 			  "", "P1_2", "",	/* 9-11 */
-			  "P1_4", "", "",	/* 12-14 */
+			  "P1_4", "P1_6", "P1_8",	/* 12-14 */
 			  "", "", "",	/* 15-17 */
 			  "", "", "",	/* 18-20 */
 			  "", "", "",	/* 21-23 */

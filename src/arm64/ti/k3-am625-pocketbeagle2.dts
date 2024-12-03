@@ -25,6 +25,8 @@
 		mmc1 = &sdhci1;
 		usb0 = &usb0;
 		usb1 = &usb1;
+		i2c0 = &main_i2c0;
+		i2c1 = &wkup_i2c0;
 	};
 
 	chosen {
@@ -111,10 +113,18 @@
 		bootph-all;
 	};
 
+	adc_vref: regulator-5 {
+		compatible = "regulator-fixed";
+		regulator-name = "default";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-boot-on;
+	};
+
 	leds {
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
-		pinctrl-0 = <&led_pins_default>;
+		pinctrl-0 = <&led_pins_default &main_mcu_pins_default &wkup_mcu_pins_default>;
 
 		led-0 {
 			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
@@ -139,6 +149,21 @@
 			function = LED_FUNCTION_DISK_ACTIVITY;
 			linux,default-trigger = "mmc1";
 		};
+
+		/* FIXME: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c966c715c77717bd8bdda32a46b33868acb7a4e2 */
+		led-4 {
+			label = "mcu_bsl";
+			gpios = <&mcu_gpio0 1 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "default-off";
+		};
+
+		/* FIXME: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c966c715c77717bd8bdda32a46b33868acb7a4e2 */
+		led-5 {
+			label = "mcu_nrst";
+			gpios = <&main_gpio1 50 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "default-on";
+			default-state = "on";
+		};
 	};
 };
 
@@ -149,6 +174,21 @@
 			AM62X_IOPAD(0x0010, PIN_OUTPUT, 7) /* (G24) OSPI0_D1.GPIO0_4 */
 			AM62X_IOPAD(0x0014, PIN_OUTPUT, 7) /* (F25) OSPI0_D2.GPIO0_5 */
 			AM62X_IOPAD(0x0018, PIN_OUTPUT, 7) /* (F24) OSPI0_D3.GPIO0_6 */
+		>;
+		bootph-all;
+	};
+
+	main_mcu_pins_default: main_mcu-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0254, PIN_OUTPUT, 7) /* (C20) USB0_DRVVBUS.GPIO1_50 */
+		>;
+		bootph-all;
+	};
+
+	main_i2c0_pins_default: main-i2c0-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
+			AM62X_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
 		>;
 		bootph-all;
 	};
@@ -218,13 +258,6 @@
 	vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0000, PIN_OUTPUT, 7) /* (H24) OSPI0_CLK.GPIO0_0 */
-		>;
-		bootph-all;
-	};
-
-	usb0_pins_default: usb1-default-pins {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x0254, PIN_INPUT, 0) /* (C20) USB0_DRVVBUS */
 		>;
 		bootph-all;
 	};
@@ -354,6 +387,13 @@
 };
 
 &mcu_pmx0 {
+	wkup_mcu_pins_default: wkup-mcu-pins-default {
+		pinctrl-single,pins = <
+			AM62X_MCU_IOPAD(0x004, PIN_OUTPUT, 7)	/* (C6/A7) WKUP_UART0_CTSn */
+		>;
+		bootph-all;
+	};
+
 	wkup_uart0_pins_default: wkup-uart0-default-pins {
 		pinctrl-single,pins = <
 			AM62X_MCU_IOPAD(0x02c, PIN_INPUT, 0)	/* (C6/A7) WKUP_UART0_CTSn */
@@ -382,8 +422,6 @@
 &usb0 {
 	bootph-all;
 	dr_mode = "peripheral";
-	//pinctrl-names = "default";
-	//pinctrl-0 = <&usb0_pins_default>;
 };
 
 &usbss1 {
@@ -520,4 +558,23 @@
 	bootph-all;
 	ti,fails-without-test-cd;
 	status = "okay";
+};
+
+&main_i2c0 {
+	bootph-all;
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_i2c0_pins_default>;
+	clock-frequency = <400000>;
+	status = "okay";
+
+	ad7291: adc@20 {
+		compatible = "adi,ad7291";
+		reg = <0x20>;
+		vref-supply = <&adc_vref>;
+	};
+
+	eeprom: eeprom@50 {
+		compatible = "24c32";
+		reg = <0x50>;
+	};
 };

@@ -123,29 +123,34 @@
 	};
 
 	leds {
+		bootph-all;
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
 		pinctrl-0 = <&led_pins_default &main_mcu_pins_default &wkup_mcu_pins_default>;
 
 		led-0 {
+			bootph-all;
 			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
 			function = LED_FUNCTION_HEARTBEAT;
 		};
 
 		led-1 {
+			bootph-all;
 			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
 			function = LED_FUNCTION_DISK_ACTIVITY;
 			linux,default-trigger = "mmc0";
 		};
 
 		led-2 {
+			bootph-all;
 			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
 			function = LED_FUNCTION_CPU;
 			linux,default-trigger = "cpu";
 		};
 
 		led-3 {
+			bootph-all;
 			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
 			function = LED_FUNCTION_DISK_ACTIVITY;
 			linux,default-trigger = "mmc1";
@@ -153,6 +158,7 @@
 
 		/* FIXME: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c966c715c77717bd8bdda32a46b33868acb7a4e2 */
 		led-4 {
+			bootph-all;
 			label = "mcu_bsl";
 			gpios = <&mcu_gpio0 1 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "default-off";
@@ -160,6 +166,7 @@
 
 		/* FIXME: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c966c715c77717bd8bdda32a46b33868acb7a4e2 */
 		led-5 {
+			bootph-all;
 			label = "mcu_nrst";
 			gpios = <&main_gpio1 50 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "default-on";
@@ -396,7 +403,7 @@
 };
 
 &mcu_pmx0 {
-	wkup_mcu_pins_default: wkup-mcu-pins-default {
+	wkup_mcu_pins_default: wkup-mcu-default-pins {
 		pinctrl-single,pins = <
 			AM62X_MCU_IOPAD(0x004, PIN_OUTPUT, 7)	/* (C6/A7) WKUP_UART0_CTSn */
 		>;

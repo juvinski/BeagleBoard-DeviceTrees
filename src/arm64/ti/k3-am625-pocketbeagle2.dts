@@ -570,10 +570,10 @@
 };
 
 &main_i2c0 {
-	bootph-all;
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_i2c0_pins_default>;
 	clock-frequency = <400000>;
+	bootph-all;
 	status = "okay";
 
 	ad7291: adc@20 {
@@ -589,13 +589,9 @@
 };
 
 &main_i2c2 {
-	bootph-all;
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_i2c2_pins_default>;
 	clock-frequency = <400000>;
+	bootph-all;
 	status = "okay";
 };
-
-
-
-

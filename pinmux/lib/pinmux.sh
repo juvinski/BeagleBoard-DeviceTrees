@@ -18,13 +18,13 @@ echo_label_analog () {
 }
 
 get_json_pkg () {
-	###Offline: https://www.ti.com/tool/download/SYSCONFIG/1.21.1.3772
-	#dl_file="https://dr-download.ti.com/software-development/ide-configuration-compiler-or-debugger/MD-nsUM6f7Vvb/1.21.1.3772/sysconfig-1.21.1_3772-setup.run"
-	#wfile="sysconfig-1.21.1_3772-setup.run"
-
 	###Offline: https://www.ti.com/tool/download/SYSCONFIG/1.21.2.3837
-	dl_file="https://dr-download.ti.com/software-development/ide-configuration-compiler-or-debugger/MD-nsUM6f7Vvb/1.21.2.3837/sysconfig-1.21.2_3837-setup.run"
-	wfile="sysconfig-1.21.2_3837-setup.run"
+	#dl_file="https://dr-download.ti.com/software-development/ide-configuration-compiler-or-debugger/MD-nsUM6f7Vvb/1.21.2.3837/sysconfig-1.21.2_3837-setup.run"
+	#wfile="sysconfig-1.21.2_3837-setup.run"
+
+	###Offline: https://www.ti.com/tool/download/SYSCONFIG/1.22.0.3893
+	dl_file="https://dr-download.ti.com/software-development/ide-configuration-compiler-or-debugger/MD-nsUM6f7Vvb/1.22.0.3893/sysconfig-1.22.0_3893-setup.run"
+	wfile="sysconfig-1.22.0_3893-setup.run"
 
 	if [ -d ./tmp/ ] ; then
 		rm -rf ./tmp/ || true

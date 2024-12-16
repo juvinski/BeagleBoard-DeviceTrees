@@ -271,12 +271,14 @@ find_pin () {
 			type="gpio"
 			core="mcu"
 			export_dts="enable"
-			pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
-			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
-			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
-			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
-			number_pins=$(bc <<< "$number_pins + 1")
-			echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			if [ ! "x${offset}" = "x" ] ; then
+				pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
+				hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
+				hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
+				register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
+				number_pins=$(bc <<< "$number_pins + 1")
+				echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			fi
 		;;
 		MCU_I2C*_S*|WKUP_I2C*_S*)
 			iopad="${mcu_iopad}"
@@ -333,12 +335,14 @@ find_pin () {
 			type="gpio"
 			core="mcu"
 			export_dts="enable"
-			pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
-			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
-			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
-			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
-			number_pins=$(bc <<< "$number_pins + 1")
-			echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			if [ ! "x${offset}" = "x" ] ; then
+				pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
+				hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
+				hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
+				register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
+				number_pins=$(bc <<< "$number_pins + 1")
+				echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			fi
 		;;
 		WKUP_UART*_TXD)
 			iopad="${mcu_iopad}"
@@ -409,30 +413,6 @@ find_pin () {
 					echo "			${iopad}(${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
 				else
 					echo "			${iopad}(${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
-				fi
-				echo "		>;" >> ${file}-${core}-pinmux.txt
-				echo "	};" >> ${file}-${core}-pinmux.txt
-				echo "" >> ${file}-${core}-pinmux.txt
-			fi
-
-			if [ "x${type}" = "xgpio" ] ; then
-				echo "	${label}_${typeu}_pu: ${labela}-${type}-pu-pins {" >> ${file}-${core}-pinmux.txt
-				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
-				if [ "x${mode_a}" = "x0" ] ; then
-					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
-				else
-					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
-				fi
-				echo "		>;" >> ${file}-${core}-pinmux.txt
-				echo "	};" >> ${file}-${core}-pinmux.txt
-				echo "" >> ${file}-${core}-pinmux.txt
-
-				echo "	${label}_${typeu}_pd: ${labela}-${type}-pd-pins {" >> ${file}-${core}-pinmux.txt
-				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
-				if [ "x${mode_a}" = "x0" ] ; then
-					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
-				else
-					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
 				fi
 				echo "		>;" >> ${file}-${core}-pinmux.txt
 				echo "	};" >> ${file}-${core}-pinmux.txt

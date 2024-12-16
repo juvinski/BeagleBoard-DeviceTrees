@@ -37,99 +37,79 @@ echo "};" >${file}-mcu-pinmux.txt
 echo "" >>${file}-mcu-pinmux.txt
 echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
 
-#P1_01: VIN_5V
-#P1_02:
-#label="P1_02A" ; ball="AIN6" ; sch="GPIO2"; find_pin
-label="P1_02A" ; ball="E18"  ; sch="GPIO2"; find_pin
-label="P1_02B" ; ball="AA19"  ; sch="GPIO2"; find_pin
+ssn="P1_01"
+sch="VIN_5V"
+
+ssn="P1_02"
+sch="GPIO87"
+label="${ssn}A"; ball="AA19"; find_pin
+label="${ssn}B"; ball="E18" ; find_pin
+
+ssn="P1_03"
+sch="USB1.DRVVBUS"
+label="${ssn}" ; ball="F18" ; find_pin
+
+ssn="P1_04"
+sch="GPIO89"
+label="${ssn}A"; ball="Y18" ; find_pin
+label="${ssn}B"; ball="D20" ; find_pin
+
+ssn="P1_05"
+sch="USB1.VBUS"
+label="${ssn}" ; ball="AB10"; find_pin
+
+ssn="P1_06"
+sch="SPI2.CS"
+label="${ssn}A"; ball="E19" ; find_pin
+label="${ssn}B"; ball="AD18"; find_pin
+
+ssn="P1_07"
+sch="VIN.USB"
+
+ssn="P1_08"
+sch="SPI2.CLK"
+label="${ssn}" ; ball="A20" ; find_pin
+
+ssn="P1_09"
+sch="USB1.D-"
+
+ssn="P1_10"
+sch="SPI2.MISO"
+label="${ssn}A"; ball="B19" ; find_pin
+label="${ssn}B"; ball="A18" ; find_pin
+
+ssn="P1_11"
+sch="USB1.D+"
+
+ssn="P1_12"
+sch="SPI2.MOSI"
+label="${ssn}A"; ball="A19" ; find_pin
+label="${ssn}B"; ball="AE18"; find_pin
+
+ssn="P1_13"
+sch="USB1.ID"
+label="${ssn}" ; ball="N20" ; find_pin
+
+ssn="P1_14"
+sch="VIN_5V3"
+
+ssn="P1_15"
+sch="GND"
+
+ssn="P1_16"
+sch="GND"
+
+ssn="P1_17"
+sch="AIN.VREF-"
+
+ssn="P1_18"
+sch="AIN.VREF+"
+
+ssn="P1_13"
+sch="AIN0"
+label="${ssn}" ; ball="AD22"; find_pin
 
 exit 2
-#2: 5V power
-
-#3: GPIO2
-label="hat_03" ; ball="E11" ; sch="GPIO2"; find_pin
-#4: 5V power
-
-#5: GPIO3
-label="hat_05" ; ball="B13" ; sch="GPIO3"; find_pin
-#6: GND
-
-#7: GPIO4
-label="hat_07" ; ball="W26" ; sch="GPIO4"; find_pin
-#8: GPIO14
-label="hat_08" ; ball="F24" ; sch="GPIO14"; find_pin
-
-#9: GND
-#10: GPIO15
-label="hat_10" ; ball="C27" ; sch="GPIO15"; find_pin
-
-#11: GPIO 17
-label="hat_11" ; ball="A26" ; sch="GPIO17"; find_pin
-#12: GPIO 18
-label="hat_12" ; ball="D25" ; sch="GPIO18"; find_pin
-
-#13: GPIO 27
-label="hat_13" ; ball="N22" ; sch="GPIO27"; find_pin
-#14: GND
-
-#15: GPIO 22
-label="hat_15" ; ball="R27" ; sch="GPIO22"; find_pin
-#16: GPIO 23
-label="hat_16" ; ball="B5" ; sch="GPIO23"; find_pin
-
-#17: 3v3
-#18: GPIO 24
-label="hat_18" ; ball="C8" ; sch="GPIO24"; find_pin
-
-#19: GPIO 10
-label="hat_19" ; ball="B12" ; sch="GPIO10"; find_pin
-#20: GND
-
-#21: GPIO 9
-label="hat_21" ; ball="C11" ; sch="GPIO9"; find_pin
-#22: GPIO 25
-label="hat_22" ; ball="P21" ; sch="GPIO25"; find_pin
-
-#23: GPIO 11
-label="hat_23" ; ball="A9" ; sch="GPIO11"; find_pin
-#24: GPIO 8
-label="hat_24" ; ball="C12" ; sch="GPIO8"; find_pin
-
-#25: GND
-#26: GPIO 7
-label="hat_26" ; ball="B3" ; sch="GPIO7"; find_pin
-
-#27: GPIO 0
-label="hat_27" ; ball="D11" ; sch="GPIO0"; find_pin
-#28: GPIO 1
-label="hat_28" ; ball="B9" ; sch="GPIO1"; find_pin
-
-#29: GPIO 5
-label="hat_29" ; ball="B20" ; sch="GPIO5"; find_pin
-#30: GND
-
-#31: GPIO 6
-label="hat_31" ; ball="D20" ; sch="GPIO6"; find_pin
-#32: GPIO 12
-label="hat_32" ; ball="C20" ; sch="GPIO12"; find_pin
-
-#33: GPIO 13
-label="hat_33" ; ball="E19" ; sch="GPIO13"; find_pin
-#34: GND
-
-#35: GPIO 19
-label="hat_35" ; ball="C26" ; sch="GPIO19"; find_pin
-#36: GPIO 16
-label="hat_36" ; ball="A25" ; sch="GPIO16"; find_pin
-
-#37: GPIO 26
-label="hat_37" ; ball="P26" ; sch="GPIO26"; find_pin
-#38: GPIO 20
-label="hat_38" ; ball="F23" ; sch="GPIO20"; find_pin
-
-#39: GND
-#40: GPIO 21
-label="hat_40" ; ball="B25" ; sch="GPIO21"; find_pin
 
 cat ${file}-pinmux.txt > ${file}-pinmux.dts
 cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts

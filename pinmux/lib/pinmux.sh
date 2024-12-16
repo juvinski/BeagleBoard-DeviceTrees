@@ -2,7 +2,7 @@
 
 #cat ${json_file} | jq '.devicePins'
 #cat ${json_file} | jq '.useCases'
-#cat ${json_file} | jq '.packages .ID_0 .packagePin[202] .devicePinID'
+#cat ${json_file} | jq '.packages .'$package_id' .packagePin[202] .devicePinID'
 
 echo_both () {
 #	echo "$msg"
@@ -94,14 +94,14 @@ find_pin () {
 
 	for number in {0..500}
 	do
-		compare=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.packages .'$package_id' .packagePin['$number'] .ball' | sed 's/\"//g' || true)
 		if [ "x${compare}" = "x${ball}" ] ; then
 			echo "debug-${ball}-${compare}-${number}"
 			echo "debug-${ball}-${compare}-${number}" >> ${file}-pins.txt
 
-			found_devicePinID_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
-			found_ball_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
-			found_powerDomainID_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
+			found_devicePinID_a=$(cat ${json_file} | jq '.packages .'$package_id' .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
+			found_ball_a=$(cat ${json_file} | jq '.packages .'$package_id' .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+			found_powerDomainID_a=$(cat ${json_file} | jq '.packages .'$package_id' .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
 			echo "devicePinID_a=${found_devicePinID_a},ball_a=${found_ball_a},powerDomainID_a=${found_powerDomainID_a}"
 			echo "devicePinID_a=${found_devicePinID_a},ball_a=${found_ball_a},powerDomainID_a=${found_powerDomainID_a}" >> ${file}-pins.txt
 			break;
@@ -254,12 +254,14 @@ find_pin () {
 		GPIO*)
 			type="gpio"
 			export_dts="enable"
-			pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
-			hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
-			hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
-			register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
-			number_pins=$(bc <<< "$number_pins + 1")
-			echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			if [ ! "x${offset}" = "x" ] ; then
+				pinoffset="$(echo ${cro_a} | sed 's/^..//' || true)"
+				hexvalue=$(bc <<< "obase=16; ibase=16; $pinoffset")
+				hexoffset=$(bc <<< "obase=16; ibase=16; $hexvalue-$offset")
+				register_count=$(bc <<< "obase=10; ibase=16; $hexoffset/4")
+				number_pins=$(bc <<< "$number_pins + 1")
+				echo "${register_count}, ${number_pins}, ${cro_a}, ${name_a}" >> ${file}-pins.csv
+			fi
 			;;
 		MCASP*)
 			type="audio"

@@ -6,6 +6,8 @@ json_file="J722S_TDA4VEN_TDA4AEN_AM67.json"
 main_iopad="J722S_IOPAD"
 mcu_iopad="J722S_MCU_IOPAD"
 
+package_id="ID_0"
+
 source $(dirname "$0")/lib/pinmux.sh
 
 board=beagley_ai

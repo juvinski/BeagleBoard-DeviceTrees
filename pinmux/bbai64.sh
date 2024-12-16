@@ -6,6 +6,8 @@ json_file="J721E_DRA829_TDA4VM_AM752x.json"
 main_iopad="J721E_IOPAD"
 mcu_iopad="J721E_WKUP_IOPAD"
 
+package_id="ID_0"
+
 source $(dirname "$0")/lib/pinmux.sh
 
 board=bbai64

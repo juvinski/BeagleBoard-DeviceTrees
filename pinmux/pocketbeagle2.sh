@@ -1,16 +1,12 @@
 #!/bin/bash
 
-#json_dir="AM62Px"
-#json_file="AM62Px.json"
-
-#json_dir="AM62x"
-#json_file="AM62x.json"
-
-json_dir="AM62SIP"
-json_file="AM62SIP.json"
+json_dir="AM62x"
+json_file="AM62x.json"
 
 main_iopad="AM62X_IOPAD"
 mcu_iopad="J722S_MCU_IOPAD"
+
+package_id="ID_1"
 
 source $(dirname "$0")/lib/pinmux.sh
 

@@ -16,7 +16,7 @@ if [ ! -d ./board/${board}/ ] ; then
 	mkdir -p ./board/${board}/ || true
 fi
 file="./board/${board}/pocketbeagle2"
-k3file="./board/${board}/k3-am625-pocketbeagle2"
+k3file="./board/${board}/k3-am6232-pocketbeagle2"
 
 echo "" >${file}-pins.txt
 
@@ -40,55 +40,46 @@ echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
 ssn="P1_01"
 sch="VIN_5V"
 
-ssn="P1_02"
-sch="GPIO87"
-label="${ssn}A"; ball="AA19"; find_pin
-label="${ssn}B"; ball="E18" ; find_pin
+sch="P1_02"
+ball="AA19"; label="${sch}_${ball}"; find_pin
+ball="E18";  label="${sch}_${ball}"; find_pin
 
-ssn="P1_03"
 sch="USB1.DRVVBUS"
-label="${ssn}" ; ball="F18" ; find_pin
+ball="F18" ; label="${sch}_${ball}"; find_pin
 
-ssn="P1_04"
-sch="GPIO89"
-label="${ssn}A"; ball="Y18" ; find_pin
-label="${ssn}B"; ball="D20" ; find_pin
+sch="P1_04"
+ball="Y18" ; label="${sch}_${ball}"; find_pin
+ball="D20" ; label="${sch}_${ball}"; find_pin
 
-ssn="P1_05"
 sch="USB1.VBUS"
-label="${ssn}" ; ball="AB10"; find_pin
+ball="AB10"; label="${sch}_${ball}"; find_pin
 
-ssn="P1_06"
-sch="SPI2.CS"
-label="${ssn}A"; ball="E19" ; find_pin
-label="${ssn}B"; ball="AD18"; find_pin
+sch="P1_06"
+ball="E19" ; label="${sch}_${ball}"; find_pin
+ball="AD18"; label="${sch}_${ball}"; find_pin
 
 ssn="P1_07"
 sch="VIN.USB"
 
-ssn="P1_08"
-sch="SPI2.CLK"
-label="${ssn}" ; ball="A20" ; find_pin
+sch="P1_08"
+ball="A20" ; label="${sch}_${ball}"; find_pin
 
 ssn="P1_09"
 sch="USB1.D-"
 
-ssn="P1_10"
-sch="SPI2.MISO"
-label="${ssn}A"; ball="B19" ; find_pin
-label="${ssn}B"; ball="A18" ; find_pin
+sch="P1_10"
+ball="B19" ; label="${sch}_${ball}"; find_pin
+ball="A18" ; label="${sch}_${ball}"; find_pin
 
 ssn="P1_11"
 sch="USB1.D+"
 
-ssn="P1_12"
-sch="SPI2.MOSI"
-label="${ssn}A"; ball="A19" ; find_pin
-label="${ssn}B"; ball="AE18"; find_pin
+sch="P1_12"
+ball="A19" ; label="${sch}_${ball}"; find_pin
+ball="AE18"; label="${sch}_${ball}"; find_pin
 
-ssn="P1_13"
 sch="USB1.ID"
-label="${ssn}" ; ball="N20" ; find_pin
+ball="N20" ; label="${sch}_${ball}"; find_pin
 
 ssn="P1_14"
 sch="VIN_5V3"
@@ -105,11 +96,63 @@ sch="AIN.VREF-"
 ssn="P1_18"
 sch="AIN.VREF+"
 
-ssn="P1_13"
-sch="AIN0"
-label="${ssn}" ; ball="AD22"; find_pin
+sch="P1_19"
+ball="AD22"; label="${sch}_${ball}"; find_pin
 
-exit 2
+sch="P1_20"
+ball="Y24" ; label="${sch}_${ball}"; find_pin
+
+sch="P1_21"
+ball="AE22"; label="${sch}_${ball}"; find_pin
+
+ssn="P1_22"
+sch="GND"
+
+sch="P1_23"
+ball="AC21"; label="${sch}_${ball}"; find_pin
+
+ssn="P1_24"
+sch="VOUT"
+
+sch="P1_25"
+ball="AB20"; label="${sch}_${ball}"; find_pin
+
+sch="P1_26"
+ball="D6" ; label="${sch}_${ball}"; find_pin
+ball="K24"; label="${sch}_${ball}"; find_pin
+
+sch="P1_27"
+ball="AE23"; label="${sch}_${ball}"; find_pin
+
+sch="P1_28"
+ball="B3" ; label="${sch}_${ball}"; find_pin
+ball="K22"; label="${sch}_${ball}"; find_pin
+
+sch="P1_29"
+ball="Y20"; label="${sch}_${ball}"; find_pin
+
+sch="P1_30"
+ball="E14"; label="${sch}_${ball}"; find_pin
+
+sch="P1_31"
+ball="Y22"; label="${sch}_${ball}"; find_pin
+
+sch="P1_32"
+ball="D14"; label="${sch}_${ball}"; find_pin
+
+sch="P1_33"
+ball="A17" ; label="${sch}_${ball}"; find_pin
+ball="AA23"; label="${sch}_${ball}"; find_pin
+
+sch="P1_34"
+ball="AD23"; label="${sch}_${ball}"; find_pin
+
+sch="P1_35"
+ball="AE21"; label="${sch}_${ball}"; find_pin
+
+sch="P1_36"
+ball="V20" ; label="${sch}_${ball}"; find_pin
+ball="B17" ; label="${sch}_${ball}"; find_pin
 
 cat ${file}-pinmux.txt > ${file}-pinmux.dts
 cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts

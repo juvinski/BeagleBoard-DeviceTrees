@@ -305,6 +305,24 @@ find_pin () {
 		OLDI0_*)
 			unset print_dts
 		;;
+		PR*_PRU0_GPI*)
+			type="pru0in"
+			export_dts="enable"
+		;;
+		PR*_PRU0_GPO*)
+			type="pru0out"
+			PIN_a="PIN_OUTPUT"
+			export_dts="enable"
+		;;
+		PR*_PRU1_GPI*)
+			type="pru1in"
+			export_dts="enable"
+		;;
+		PR*_PRU1_GPO*)
+			type="pru1out"
+			PIN_a="PIN_OUTPUT"
+			export_dts="enable"
+		;;
 		SPI0*)
 			unset print_dts
 		;;

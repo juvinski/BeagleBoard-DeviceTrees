@@ -39,6 +39,18 @@
 		>;
 	};
 
+	P1_02_AA19_pru1out: P1-02-AA19-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0164, PIN_OUTPUT, 3) /* (AA19) RGMII2_TX_CTL.PR0_PRU1_GPO0 */
+		>;
+	};
+
+	P1_02_AA19_pru1in: P1-02-AA19-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0164, PIN_INPUT, 4) /* (AA19) RGMII2_TX_CTL.PR0_PRU1_GPI0 */
+		>;
+	};
+
 	P1_02_AA19_gpio: P1-02-AA19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0164, PIN_INPUT, 7) /* (AA19) RGMII2_TX_CTL.GPIO0_87 */
@@ -78,6 +90,18 @@
 	P1_04_Y18_audio: P1-04-Y18-audio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x016C, PIN_INPUT, 2) /* (Y18) RGMII2_TD0.MCASP2_AXR6 */
+		>;
+	};
+
+	P1_04_Y18_pru1out: P1-04-Y18-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x016C, PIN_OUTPUT, 3) /* (Y18) RGMII2_TD0.PR0_PRU1_GPO2 */
+		>;
+	};
+
+	P1_04_Y18_pru1in: P1-04-Y18-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x016C, PIN_INPUT, 4) /* (Y18) RGMII2_TD0.PR0_PRU1_GPI2 */
 		>;
 	};
 
@@ -267,6 +291,18 @@
 		>;
 	};
 
+	USB1.ID_pru0out: USB1.ID-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0094, PIN_OUTPUT, 4) /* (N20) GPMC0_BE1n.PR0_PRU0_GPO13 */
+		>;
+	};
+
+	USB1.ID_pru0in: USB1.ID-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0094, PIN_INPUT, 5) /* (N20) GPMC0_BE1n.PR0_PRU0_GPI13 */
+		>;
+	};
+
 	USB1.ID_gpio: USB1.ID-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0094, PIN_INPUT, 7) /* (N20) GPMC0_BE1n.GPIO0_36 */
@@ -279,9 +315,33 @@
 		>;
 	};
 
+	P1_19_pru0out: P1-19-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x017C, PIN_OUTPUT, 3) /* (AD22) RGMII2_RX_CTL.PR0_PRU0_GPO0 */
+		>;
+	};
+
+	P1_19_pru0in: P1-19-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x017C, PIN_INPUT, 4) /* (AD22) RGMII2_RX_CTL.PR0_PRU0_GPI0 */
+		>;
+	};
+
 	P1_19_gpio: P1-19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x017C, PIN_INPUT, 7) /* (AD22) RGMII2_RX_CTL.GPIO1_1 */
+		>;
+	};
+
+	P1_20_pru1out: P1-20-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00CC, PIN_OUTPUT, 2) /* (Y24) VOUT0_DATA5.PR0_PRU1_GPO5 */
+		>;
+	};
+
+	P1_20_pru1in: P1-20-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00CC, PIN_INPUT, 3) /* (Y24) VOUT0_DATA5.PR0_PRU1_GPI5 */
 		>;
 	};
 
@@ -291,9 +351,33 @@
 		>;
 	};
 
+	P1_20_pru0out: P1-20-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00CC, PIN_OUTPUT, 5) /* (Y24) VOUT0_DATA5.PR0_PRU0_GPO13 */
+		>;
+	};
+
+	P1_20_pru0in: P1-20-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00CC, PIN_INPUT, 6) /* (Y24) VOUT0_DATA5.PR0_PRU0_GPI13 */
+		>;
+	};
+
 	P1_20_gpio: P1-20-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00CC, PIN_INPUT, 7) /* (Y24) VOUT0_DATA5.GPIO0_50 */
+		>;
+	};
+
+	P1_21_pru0out: P1-21-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0190, PIN_OUTPUT, 3) /* (AE22) RGMII2_RD3.PR0_PRU0_GPO16 */
+		>;
+	};
+
+	P1_21_pru0in: P1-21-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0190, PIN_INPUT, 4) /* (AE22) RGMII2_RD3.PR0_PRU0_GPI16 */
 		>;
 	};
 
@@ -309,6 +393,18 @@
 		>;
 	};
 
+	P1_23_pru0out: P1-23-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x018C, PIN_OUTPUT, 3) /* (AC21) RGMII2_RD2.PR0_PRU0_GPO4 */
+		>;
+	};
+
+	P1_23_pru0in: P1-23-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x018C, PIN_INPUT, 4) /* (AC21) RGMII2_RD2.PR0_PRU0_GPI4 */
+		>;
+	};
+
 	P1_23_gpio: P1-23-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x018C, PIN_INPUT, 7) /* (AC21) RGMII2_RD2.GPIO1_5 */
@@ -318,6 +414,18 @@
 	P1_25_audio: P1-25-audio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0188, PIN_INPUT, 2) /* (AB20) RGMII2_RD1.MCASP2_AFSR */
+		>;
+	};
+
+	P1_25_pru0out: P1-25-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0188, PIN_OUTPUT, 3) /* (AB20) RGMII2_RD1.PR0_PRU0_GPO3 */
+		>;
+	};
+
+	P1_25_pru0in: P1-25-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0188, PIN_INPUT, 4) /* (AB20) RGMII2_RD1.PR0_PRU0_GPI3 */
 		>;
 	};
 
@@ -369,6 +477,18 @@
 		>;
 	};
 
+	P1_27_pru0out: P1-27-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0184, PIN_OUTPUT, 3) /* (AE23) RGMII2_RD0.PR0_PRU0_GPO2 */
+		>;
+	};
+
+	P1_27_pru0in: P1-27-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0184, PIN_INPUT, 4) /* (AE23) RGMII2_RD0.PR0_PRU0_GPI2 */
+		>;
+	};
+
 	P1_27_gpio: P1-27-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0184, PIN_INPUT, 7) /* (AE23) RGMII2_RD0.GPIO1_3 */
@@ -393,6 +513,18 @@
 		>;
 	};
 
+	P1_28_K22_pru0out: P1-28-K22-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B0, PIN_OUTPUT, 4) /* (K22) GPMC0_CSn2.PR0_PRU0_GPO19 */
+		>;
+	};
+
+	P1_28_K22_pru0in: P1-28-K22-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B0, PIN_INPUT, 5) /* (K22) GPMC0_CSn2.PR0_PRU0_GPI19 */
+		>;
+	};
+
 	P1_28_K22_gpio: P1-28-K22-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00B0, PIN_INPUT, 7) /* (K22) GPMC0_CSn2.GPIO0_43 */
@@ -402,6 +534,30 @@
 	P1_28_K22_audio: P1-28-K22-audio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00B0, PIN_INPUT, 8) /* (K22) GPMC0_CSn2.MCASP1_AFSR */
+		>;
+	};
+
+	P1_29_pru1out: P1-29-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00FC, PIN_OUTPUT, 2) /* (Y20) VOUT0_DE.PR0_PRU1_GPO17 */
+		>;
+	};
+
+	P1_29_pru1in: P1-29-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00FC, PIN_INPUT, 3) /* (Y20) VOUT0_DE.PR0_PRU1_GPI17 */
+		>;
+	};
+
+	P1_29_pru0out: P1-29-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00FC, PIN_OUTPUT, 5) /* (Y20) VOUT0_DE.PR0_PRU0_GPO7 */
+		>;
+	};
+
+	P1_29_pru0in: P1-29-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00FC, PIN_INPUT, 6) /* (Y20) VOUT0_DE.PR0_PRU0_GPI7 */
 		>;
 	};
 
@@ -438,6 +594,30 @@
 	P1_30_gpio: P1-30-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01CC, PIN_INPUT, 7) /* (E14) UART0_TXD.GPIO1_21 */
+		>;
+	};
+
+	P1_31_pru1out: P1-31-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F0, PIN_OUTPUT, 2) /* (Y22) VOUT0_DATA14.PR0_PRU1_GPO13 */
+		>;
+	};
+
+	P1_31_pru1in: P1-31-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F0, PIN_INPUT, 3) /* (Y22) VOUT0_DATA14.PR0_PRU1_GPI13 */
+		>;
+	};
+
+	P1_31_pru0out: P1-31-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F0, PIN_OUTPUT, 5) /* (Y22) VOUT0_DATA14.PR0_PRU0_GPO4 */
+		>;
+	};
+
+	P1_31_pru0in: P1-31-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F0, PIN_INPUT, 6) /* (Y22) VOUT0_DATA14.PR0_PRU0_GPI4 */
 		>;
 	};
 
@@ -507,6 +687,30 @@
 		>;
 	};
 
+	P1_33_AA23_pru1out: P1-33-AA23-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E4, PIN_OUTPUT, 2) /* (AA23) VOUT0_DATA11.PR0_PRU1_GPO10 */
+		>;
+	};
+
+	P1_33_AA23_pru1in: P1-33-AA23-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E4, PIN_INPUT, 3) /* (AA23) VOUT0_DATA11.PR0_PRU1_GPI10 */
+		>;
+	};
+
+	P1_33_AA23_pru0out: P1-33-AA23-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E4, PIN_OUTPUT, 5) /* (AA23) VOUT0_DATA11.PR0_PRU0_GPO1 */
+		>;
+	};
+
+	P1_33_AA23_pru0in: P1-33-AA23-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E4, PIN_INPUT, 6) /* (AA23) VOUT0_DATA11.PR0_PRU0_GPI1 */
+		>;
+	};
+
 	P1_33_AA23_gpio: P1-33-AA23-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00E4, PIN_INPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
@@ -516,6 +720,18 @@
 	P1_34_audio: P1-34-audio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0180, PIN_INPUT, 2) /* (AD23) RGMII2_RXC.MCASP2_AXR1 */
+		>;
+	};
+
+	P1_34_pru0out: P1-34-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0180, PIN_OUTPUT, 3) /* (AD23) RGMII2_RXC.PR0_PRU0_GPO1 */
+		>;
+	};
+
+	P1_34_pru0in: P1-34-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0180, PIN_INPUT, 4) /* (AD23) RGMII2_RXC.PR0_PRU0_GPI1 */
 		>;
 	};
 
@@ -531,9 +747,45 @@
 		>;
 	};
 
+	P1_35_pru1out: P1-35-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0168, PIN_OUTPUT, 3) /* (AE21) RGMII2_TXC.PR0_PRU1_GPO1 */
+		>;
+	};
+
+	P1_35_pru1in: P1-35-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0168, PIN_INPUT, 4) /* (AE21) RGMII2_TXC.PR0_PRU1_GPI1 */
+		>;
+	};
+
 	P1_35_gpio: P1-35-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0168, PIN_INPUT, 7) /* (AE21) RGMII2_TXC.GPIO0_88 */
+		>;
+	};
+
+	P1_36_V20_pru1out: P1-36-V20-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E0, PIN_OUTPUT, 2) /* (V20) VOUT0_DATA10.PR0_PRU1_GPO9 */
+		>;
+	};
+
+	P1_36_V20_pru1in: P1-36-V20-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E0, PIN_INPUT, 3) /* (V20) VOUT0_DATA10.PR0_PRU1_GPI9 */
+		>;
+	};
+
+	P1_36_V20_pru0out: P1-36-V20-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E0, PIN_OUTPUT, 5) /* (V20) VOUT0_DATA10.PR0_PRU0_GPO0 */
+		>;
+	};
+
+	P1_36_V20_pru0in: P1-36-V20-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E0, PIN_INPUT, 6) /* (V20) VOUT0_DATA10.PR0_PRU0_GPI0 */
 		>;
 	};
 
@@ -609,9 +861,33 @@
 		>;
 	};
 
+	P2_02_pru1out: P2-02-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B8, PIN_OUTPUT, 2) /* (U22) VOUT0_DATA0.PR0_PRU1_GPO0 */
+		>;
+	};
+
+	P2_02_pru1in: P2-02-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B8, PIN_INPUT, 3) /* (U22) VOUT0_DATA0.PR0_PRU1_GPI0 */
+		>;
+	};
+
 	P2_02_uart2_rxd: P2-02-uart2-rxd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00B8, PIN_INPUT, 4) /* (U22) VOUT0_DATA0.UART2_RXD */
+		>;
+	};
+
+	P2_02_pru0out: P2-02-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B8, PIN_OUTPUT, 5) /* (U22) VOUT0_DATA0.PR0_PRU0_GPO8 */
+		>;
+	};
+
+	P2_02_pru0in: P2-02-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00B8, PIN_INPUT, 6) /* (U22) VOUT0_DATA0.PR0_PRU0_GPI8 */
 		>;
 	};
 
@@ -663,9 +939,33 @@
 		>;
 	};
 
+	P2_04_pru1out: P2-04-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00BC, PIN_OUTPUT, 2) /* (V24) VOUT0_DATA1.PR0_PRU1_GPO1 */
+		>;
+	};
+
+	P2_04_pru1in: P2-04-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00BC, PIN_INPUT, 3) /* (V24) VOUT0_DATA1.PR0_PRU1_GPI1 */
+		>;
+	};
+
 	P2_04_uart2_txd: P2-04-uart2-txd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00BC, PIN_OUTPUT, 4) /* (V24) VOUT0_DATA1.UART2_TXD */
+		>;
+	};
+
+	P2_04_pru0out: P2-04-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00BC, PIN_OUTPUT, 5) /* (V24) VOUT0_DATA1.PR0_PRU0_GPO9 */
+		>;
+	};
+
+	P2_04_pru0in: P2-04-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00BC, PIN_INPUT, 6) /* (V24) VOUT0_DATA1.PR0_PRU0_GPI9 */
 		>;
 	};
 
@@ -693,9 +993,33 @@
 		>;
 	};
 
+	P2_06_pru1out: P2-06-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C0, PIN_OUTPUT, 2) /* (W25) VOUT0_DATA2.PR0_PRU1_GPO2 */
+		>;
+	};
+
+	P2_06_pru1in: P2-06-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C0, PIN_INPUT, 3) /* (W25) VOUT0_DATA2.PR0_PRU1_GPI2 */
+		>;
+	};
+
 	P2_06_uart3_rxd: P2-06-uart3-rxd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00C0, PIN_INPUT, 4) /* (W25) VOUT0_DATA2.UART3_RXD */
+		>;
+	};
+
+	P2_06_pru0out: P2-06-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C0, PIN_OUTPUT, 5) /* (W25) VOUT0_DATA2.PR0_PRU0_GPO10 */
+		>;
+	};
+
+	P2_06_pru0in: P2-06-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C0, PIN_INPUT, 6) /* (W25) VOUT0_DATA2.PR0_PRU0_GPI10 */
 		>;
 	};
 
@@ -723,9 +1047,33 @@
 		>;
 	};
 
+	P2_08_pru1out: P2-08-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C4, PIN_OUTPUT, 2) /* (W24) VOUT0_DATA3.PR0_PRU1_GPO3 */
+		>;
+	};
+
+	P2_08_pru1in: P2-08-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C4, PIN_INPUT, 3) /* (W24) VOUT0_DATA3.PR0_PRU1_GPI3 */
+		>;
+	};
+
 	P2_08_uart3_txd: P2-08-uart3-txd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00C4, PIN_OUTPUT, 4) /* (W24) VOUT0_DATA3.UART3_TXD */
+		>;
+	};
+
+	P2_08_pru0out: P2-08-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C4, PIN_OUTPUT, 5) /* (W24) VOUT0_DATA3.PR0_PRU0_GPO11 */
+		>;
+	};
+
+	P2_08_pru0in: P2-08-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C4, PIN_INPUT, 6) /* (W24) VOUT0_DATA3.PR0_PRU0_GPI11 */
 		>;
 	};
 
@@ -765,6 +1113,18 @@
 		>;
 	};
 
+	P2_10_pru1out: P2-10-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0174, PIN_OUTPUT, 3) /* (AD21) RGMII2_TD2.PR0_PRU1_GPO4 */
+		>;
+	};
+
+	P2_10_pru1in: P2-10-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0174, PIN_INPUT, 4) /* (AD21) RGMII2_TD2.PR0_PRU1_GPI4 */
+		>;
+	};
+
 	P2_10_gpio: P2-10-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0174, PIN_INPUT, 7) /* (AD21) RGMII2_TD2.GPIO0_91 */
@@ -795,15 +1155,63 @@
 		>;
 	};
 
+	P2_17_pru1out: P2-17-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0104, PIN_OUTPUT, 2) /* (AC24) VOUT0_PCLK.PR0_PRU1_GPO19 */
+		>;
+	};
+
+	P2_17_pru1in: P2-17-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0104, PIN_INPUT, 3) /* (AC24) VOUT0_PCLK.PR0_PRU1_GPI19 */
+		>;
+	};
+
+	P2_17_pru0out: P2-17-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0104, PIN_OUTPUT, 5) /* (AC24) VOUT0_PCLK.PR0_PRU0_GPO19 */
+		>;
+	};
+
+	P2_17_pru0in: P2-17-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0104, PIN_INPUT, 6) /* (AC24) VOUT0_PCLK.PR0_PRU0_GPI19 */
+		>;
+	};
+
 	P2_17_gpio: P2-17-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0104, PIN_INPUT, 7) /* (AC24) VOUT0_PCLK.GPIO0_64 */
 		>;
 	};
 
+	P2_18_pru1out: P2-18-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D8, PIN_OUTPUT, 2) /* (V21) VOUT0_DATA8.PR0_PRU1_GPO16 */
+		>;
+	};
+
+	P2_18_pru1in: P2-18-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D8, PIN_INPUT, 3) /* (V21) VOUT0_DATA8.PR0_PRU1_GPI16 */
+		>;
+	};
+
 	P2_18_uart6_rxd: P2-18-uart6-rxd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00D8, PIN_INPUT, 4) /* (V21) VOUT0_DATA8.UART6_RXD */
+		>;
+	};
+
+	P2_18_pru0out: P2-18-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D8, PIN_OUTPUT, 5) /* (V21) VOUT0_DATA8.PR0_PRU0_GPO17 */
+		>;
+	};
+
+	P2_18_pru0in: P2-18-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D8, PIN_INPUT, 6) /* (V21) VOUT0_DATA8.PR0_PRU0_GPI17 */
 		>;
 	};
 
@@ -819,9 +1227,33 @@
 		>;
 	};
 
+	P2_19_pru1out: P2-19-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0178, PIN_OUTPUT, 3) /* (AC20) RGMII2_TD3.PR0_PRU1_GPO16 */
+		>;
+	};
+
+	P2_19_pru1in: P2-19-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0178, PIN_INPUT, 4) /* (AC20) RGMII2_TD3.PR0_PRU1_GPI16 */
+		>;
+	};
+
 	P2_19_gpio: P2-19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0178, PIN_INPUT, 7) /* (AC20) RGMII2_TD3.GPIO1_0 */
+		>;
+	};
+
+	P2_20_pru1out: P2-20-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C8, PIN_OUTPUT, 2) /* (Y25) VOUT0_DATA4.PR0_PRU1_GPO4 */
+		>;
+	};
+
+	P2_20_pru1in: P2-20-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C8, PIN_INPUT, 3) /* (Y25) VOUT0_DATA4.PR0_PRU1_GPI4 */
 		>;
 	};
 
@@ -831,9 +1263,45 @@
 		>;
 	};
 
+	P2_20_pru0out: P2-20-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C8, PIN_OUTPUT, 5) /* (Y25) VOUT0_DATA4.PR0_PRU0_GPO12 */
+		>;
+	};
+
+	P2_20_pru0in: P2-20-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C8, PIN_INPUT, 6) /* (Y25) VOUT0_DATA4.PR0_PRU0_GPI12 */
+		>;
+	};
+
 	P2_20_gpio: P2-20-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00C8, PIN_INPUT, 7) /* (Y25) VOUT0_DATA4.GPIO0_49 */
+		>;
+	};
+
+	P2_22_pru1out: P2-22-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0100, PIN_OUTPUT, 2) /* (AC25) VOUT0_VSYNC.PR0_PRU1_GPO18 */
+		>;
+	};
+
+	P2_22_pru1in: P2-22-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0100, PIN_INPUT, 3) /* (AC25) VOUT0_VSYNC.PR0_PRU1_GPI18 */
+		>;
+	};
+
+	P2_22_pru0out: P2-22-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0100, PIN_OUTPUT, 5) /* (AC25) VOUT0_VSYNC.PR0_PRU0_GPO18 */
+		>;
+	};
+
+	P2_22_pru0in: P2-22-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0100, PIN_INPUT, 6) /* (AC25) VOUT0_VSYNC.PR0_PRU0_GPI18 */
 		>;
 	};
 
@@ -843,9 +1311,33 @@
 		>;
 	};
 
+	P2_24_pru1out: P2-24-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D0, PIN_OUTPUT, 2) /* (Y23) VOUT0_DATA6.PR0_PRU1_GPO6 */
+		>;
+	};
+
+	P2_24_pru1in: P2-24-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D0, PIN_INPUT, 3) /* (Y23) VOUT0_DATA6.PR0_PRU1_GPI6 */
+		>;
+	};
+
 	P2_24_uart5_rxd: P2-24-uart5-rxd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00D0, PIN_INPUT, 4) /* (Y23) VOUT0_DATA6.UART5_RXD */
+		>;
+	};
+
+	P2_24_pru0out: P2-24-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D0, PIN_OUTPUT, 5) /* (Y23) VOUT0_DATA6.PR0_PRU0_GPO14 */
+		>;
+	};
+
+	P2_24_pru0in: P2-24-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D0, PIN_INPUT, 6) /* (Y23) VOUT0_DATA6.PR0_PRU0_GPI14 */
 		>;
 	};
 
@@ -873,6 +1365,30 @@
 		>;
 	};
 
+	P2_28_pru1out: P2-28-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F8, PIN_OUTPUT, 2) /* (AB24) VOUT0_HSYNC.PR0_PRU1_GPO15 */
+		>;
+	};
+
+	P2_28_pru1in: P2-28-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F8, PIN_INPUT, 3) /* (AB24) VOUT0_HSYNC.PR0_PRU1_GPI15 */
+		>;
+	};
+
+	P2_28_pru0out: P2-28-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F8, PIN_OUTPUT, 5) /* (AB24) VOUT0_HSYNC.PR0_PRU0_GPO6 */
+		>;
+	};
+
+	P2_28_pru0in: P2-28-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F8, PIN_INPUT, 6) /* (AB24) VOUT0_HSYNC.PR0_PRU0_GPI6 */
+		>;
+	};
+
 	P2_28_gpio: P2-28-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00F8, PIN_INPUT, 7) /* (AB24) VOUT0_HSYNC.GPIO0_61 */
@@ -897,9 +1413,45 @@
 		>;
 	};
 
+	P2_29_M22_pru0out: P2-29-M22-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00A4, PIN_OUTPUT, 4) /* (M22) GPMC0_DIR.PR0_PRU0_GPO16 */
+		>;
+	};
+
+	P2_29_M22_pru0in: P2-29-M22-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00A4, PIN_INPUT, 5) /* (M22) GPMC0_DIR.PR0_PRU0_GPI16 */
+		>;
+	};
+
 	P2_29_M22_gpio: P2-29-M22-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00A4, PIN_INPUT, 7) /* (M22) GPMC0_DIR.GPIO0_40 */
+		>;
+	};
+
+	P2_30_pru1out: P2-30-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00EC, PIN_OUTPUT, 2) /* (AA24) VOUT0_DATA13.PR0_PRU1_GPO12 */
+		>;
+	};
+
+	P2_30_pru1in: P2-30-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00EC, PIN_INPUT, 3) /* (AA24) VOUT0_DATA13.PR0_PRU1_GPI12 */
+		>;
+	};
+
+	P2_30_pru0out: P2-30-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00EC, PIN_OUTPUT, 5) /* (AA24) VOUT0_DATA13.PR0_PRU0_GPO3 */
+		>;
+	};
+
+	P2_30_pru0in: P2-30-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00EC, PIN_INPUT, 6) /* (AA24) VOUT0_DATA13.PR0_PRU0_GPI3 */
 		>;
 	};
 
@@ -927,6 +1479,18 @@
 		>;
 	};
 
+	P2_31_AA18_pru1out: P2-31-AA18-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0170, PIN_OUTPUT, 3) /* (AA18) RGMII2_TD1.PR0_PRU1_GPO3 */
+		>;
+	};
+
+	P2_31_AA18_pru1in: P2-31-AA18-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0170, PIN_INPUT, 4) /* (AA18) RGMII2_TD1.PR0_PRU1_GPI3 */
+		>;
+	};
+
 	P2_31_AA18_audio: P2-31-AA18-audio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0170, PIN_INPUT, 5) /* (AA18) RGMII2_TD1.MCASP2_AXR8 */
@@ -939,9 +1503,45 @@
 		>;
 	};
 
+	P2_32_pru1out: P2-32-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E8, PIN_OUTPUT, 2) /* (AB25) VOUT0_DATA12.PR0_PRU1_GPO11 */
+		>;
+	};
+
+	P2_32_pru1in: P2-32-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E8, PIN_INPUT, 3) /* (AB25) VOUT0_DATA12.PR0_PRU1_GPI11 */
+		>;
+	};
+
+	P2_32_pru0out: P2-32-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E8, PIN_OUTPUT, 5) /* (AB25) VOUT0_DATA12.PR0_PRU0_GPO2 */
+		>;
+	};
+
+	P2_32_pru0in: P2-32-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00E8, PIN_INPUT, 6) /* (AB25) VOUT0_DATA12.PR0_PRU0_GPI2 */
+		>;
+	};
+
 	P2_32_gpio: P2-32-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00E8, PIN_INPUT, 7) /* (AB25) VOUT0_DATA12.GPIO0_57 */
+		>;
+	};
+
+	P2_33_pru1out: P2-33-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D4, PIN_OUTPUT, 2) /* (AA25) VOUT0_DATA7.PR0_PRU1_GPO7 */
+		>;
+	};
+
+	P2_33_pru1in: P2-33-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D4, PIN_INPUT, 3) /* (AA25) VOUT0_DATA7.PR0_PRU1_GPI7 */
 		>;
 	};
 
@@ -951,9 +1551,45 @@
 		>;
 	};
 
+	P2_33_pru0out: P2-33-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D4, PIN_OUTPUT, 5) /* (AA25) VOUT0_DATA7.PR0_PRU0_GPO15 */
+		>;
+	};
+
+	P2_33_pru0in: P2-33-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00D4, PIN_INPUT, 6) /* (AA25) VOUT0_DATA7.PR0_PRU0_GPI15 */
+		>;
+	};
+
 	P2_33_gpio: P2-33-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00D4, PIN_INPUT, 7) /* (AA25) VOUT0_DATA7.GPIO0_52 */
+		>;
+	};
+
+	P2_34_pru1out: P2-34-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F4, PIN_OUTPUT, 2) /* (AA21) VOUT0_DATA15.PR0_PRU1_GPO14 */
+		>;
+	};
+
+	P2_34_pru1in: P2-34-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F4, PIN_INPUT, 3) /* (AA21) VOUT0_DATA15.PR0_PRU1_GPI14 */
+		>;
+	};
+
+	P2_34_pru0out: P2-34-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F4, PIN_OUTPUT, 5) /* (AA21) VOUT0_DATA15.PR0_PRU0_GPO5 */
+		>;
+	};
+
+	P2_34_pru0in: P2-34-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00F4, PIN_INPUT, 6) /* (AA21) VOUT0_DATA15.PR0_PRU0_GPI5 */
 		>;
 	};
 
@@ -963,9 +1599,33 @@
 		>;
 	};
 
+	P2_35_pru1out: P2-35-pru1out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00DC, PIN_OUTPUT, 2) /* (W21) VOUT0_DATA9.PR0_PRU1_GPO8 */
+		>;
+	};
+
+	P2_35_pru1in: P2-35-pru1in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00DC, PIN_INPUT, 3) /* (W21) VOUT0_DATA9.PR0_PRU1_GPI8 */
+		>;
+	};
+
 	P2_35_uart6_txd: P2-35-uart6-txd-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00DC, PIN_OUTPUT, 4) /* (W21) VOUT0_DATA9.UART6_TXD */
+		>;
+	};
+
+	P2_35_pru0out: P2-35-pru0out-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00DC, PIN_OUTPUT, 5) /* (W21) VOUT0_DATA9.PR0_PRU0_GPO16 */
+		>;
+	};
+
+	P2_35_pru0in: P2-35-pru0in-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00DC, PIN_INPUT, 6) /* (W21) VOUT0_DATA9.PR0_PRU0_GPI16 */
 		>;
 	};
 

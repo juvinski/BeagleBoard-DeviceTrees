@@ -44,35 +44,35 @@
 	P1_02_AA19_gpio: P1-02-AA19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0164, PIN_INPUT, 7) /* (AA19) RGMII2_TX_CTL.GPIO0_87 */
-			AM62X_IOPAD(0x01A0, PIN_INPUT, 7) /* (E18) MCASP0_AXR0.GPIO1_10 */
+			AM62X_IOPAD(0x01A0, PIN_DISABLE, 7) /* (E18) MCASP0_AXR0.GPIO1_10 */
 		>;
 	};
 
 	P1_04_D20_gpio: P1-04-D20-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01A8, PIN_INPUT, 7) /* (D20) MCASP0_AFSX.GPIO1_12 */
-			AM62X_IOPAD(0x016C, PIN_INPUT, 7) /* (Y18) RGMII2_TD0.GPIO0_89 */
+			AM62X_IOPAD(0x016C, PIN_DISABLE, 7) /* (Y18) RGMII2_TD0.GPIO0_89 */
 		>;
 	};
 
 	P1_04_Y18_gpio: P1-04-Y18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x016C, PIN_INPUT, 7) /* (Y18) RGMII2_TD0.GPIO0_89 */
-			AM62X_IOPAD(0x01A8, PIN_INPUT, 7) /* (D20) MCASP0_AFSX.GPIO1_12 */
+			AM62X_IOPAD(0x01A8, PIN_DISABLE, 7) /* (D20) MCASP0_AFSX.GPIO1_12 */
 		>;
 	};
 
 	P1_06_E19_gpio: P1-06-E19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01AC, PIN_INPUT, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
-			AM62X_IOPAD(0x0140, PIN_INPUT, 7) /* (AD18) RGMII1_TD3.GPIO0_78 */
+			AM62X_IOPAD(0x0140, PIN_DISABLE, 7) /* (AD18) RGMII1_TD3.GPIO0_78 */
 		>;
 	};
 
 	P1_06_AD18_gpio: P1-06-AD18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0140, PIN_INPUT, 7) /* (AD18) RGMII1_TD3.GPIO0_78 */
-			AM62X_IOPAD(0x01AC, PIN_INPUT, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
+			AM62X_IOPAD(0x01AC, PIN_DISABLE, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
 		>;
 	};
 
@@ -85,28 +85,28 @@
 	P1_10_A18_gpio: P1-10-A18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01F0, PIN_INPUT, 7) /* (A18) EXT_REFCLK1.GPIO1_30 */
-			AM62X_IOPAD(0x0194, PIN_INPUT, 7) /* (B19) MCASP0_AXR3.GPIO1_7 */
+			AM62X_IOPAD(0x0194, PIN_DISABLE, 7) /* (B19) MCASP0_AXR3.GPIO1_7 */
 		>;
 	};
 
 	P1_10_B19_gpio: P1-10-B19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0194, PIN_INPUT, 7) /* (B19) MCASP0_AXR3.GPIO1_7 */
-			AM62X_IOPAD(0x01F0, PIN_INPUT, 7) /* (A18) EXT_REFCLK1.GPIO1_30 */
+			AM62X_IOPAD(0x01F0, PIN_DISABLE, 7) /* (A18) EXT_REFCLK1.GPIO1_30 */
 		>;
 	};
 
 	P1_12_A19_gpio: P1-12-A19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0198, PIN_INPUT, 7) /* (A19) MCASP0_AXR2.GPIO1_8 */
-			AM62X_IOPAD(0x013C, PIN_INPUT, 7) /* (AE18) RGMII1_TD2.GPIO0_77 */
+			AM62X_IOPAD(0x013C, PIN_DISABLE, 7) /* (AE18) RGMII1_TD2.GPIO0_77 */
 		>;
 	};
 
 	P1_12_AE18_gpio: P1-12-AE18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x013C, PIN_INPUT, 7) /* (AE18) RGMII1_TD2.GPIO0_77 */
-			AM62X_IOPAD(0x0198, PIN_INPUT, 7) /* (A19) MCASP0_AXR2.GPIO1_8 */
+			AM62X_IOPAD(0x0198, PIN_DISABLE, 7) /* (A19) MCASP0_AXR2.GPIO1_8 */
 		>;
 	};
 
@@ -185,14 +185,14 @@
 	P1_33_A17_gpio: P1-33-A17-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01EC, PIN_INPUT, 7) /* (A17) I2C1_SDA.GPIO1_29 */
-			AM62X_IOPAD(0x00E4, PIN_INPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
+			AM62X_IOPAD(0x00E4, PIN_DISABLE, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
 		>;
 	};
 
 	P1_33_AA23_gpio: P1-33-AA23-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00E4, PIN_INPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
-			AM62X_IOPAD(0x01EC, PIN_INPUT, 7) /* (A17) I2C1_SDA.GPIO1_29 */
+			AM62X_IOPAD(0x01EC, PIN_DISABLE, 7) /* (A17) I2C1_SDA.GPIO1_29 */
 		>;
 	};
 
@@ -211,28 +211,28 @@
 	P1_36_V20_gpio: P1-36-V20-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00E0, PIN_INPUT, 7) /* (V20) VOUT0_DATA10.GPIO0_55 */
-			AM62X_IOPAD(0x01E8, PIN_INPUT, 7) /* (B17) I2C1_SCL.GPIO1_28 */
+			AM62X_IOPAD(0x01E8, PIN_DISABLE, 7) /* (B17) I2C1_SCL.GPIO1_28 */
 		>;
 	};
 
 	P1_36_B17_gpio: P1-36-B17-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01E8, PIN_INPUT, 7) /* (B17) I2C1_SCL.GPIO1_28 */
-			AM62X_IOPAD(0x00E0, PIN_INPUT, 7) /* (V20) VOUT0_DATA10.GPIO0_55 */
+			AM62X_IOPAD(0x00E0, PIN_DISABLE, 7) /* (V20) VOUT0_DATA10.GPIO0_55 */
 		>;
 	};
 
 	P2_01_AD24_gpio: P2-01-AD24-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0160, PIN_INPUT, 7) /* (AD24) MDIO0_MDC.GPIO0_86 */
-			AM62X_IOPAD(0x01A4, PIN_INPUT, 7) /* (B20) MCASP0_ACLKX.GPIO1_11 */
+			AM62X_IOPAD(0x01A4, PIN_DISABLE, 7) /* (B20) MCASP0_ACLKX.GPIO1_11 */
 		>;
 	};
 
 	P2_01_B20_gpio: P2-01-B20-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01A4, PIN_INPUT, 7) /* (B20) MCASP0_ACLKX.GPIO1_11 */
-			AM62X_IOPAD(0x0160, PIN_INPUT, 7) /* (AD24) MDIO0_MDC.GPIO0_86 */
+			AM62X_IOPAD(0x0160, PIN_DISABLE, 7) /* (AD24) MDIO0_MDC.GPIO0_86 */
 		>;
 	};
 
@@ -245,14 +245,14 @@
 	P2_03_AB22_gpio: P2-03-AB22-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x015C, PIN_INPUT, 7) /* (AB22) MDIO0_MDIO.GPIO0_85 */
-			AM62X_IOPAD(0x019C, PIN_INPUT, 7) /* (B18) MCASP0_AXR1.GPIO1_9 */
+			AM62X_IOPAD(0x019C, PIN_DISABLE, 7) /* (B18) MCASP0_AXR1.GPIO1_9 */
 		>;
 	};
 
 	P2_03_B18_gpio: P2-03-B18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x019C, PIN_INPUT, 7) /* (B18) MCASP0_AXR1.GPIO1_9 */
-			AM62X_IOPAD(0x015C, PIN_INPUT, 7) /* (AB22) MDIO0_MDIO.GPIO0_85 */
+			AM62X_IOPAD(0x015C, PIN_DISABLE, 7) /* (AB22) MDIO0_MDIO.GPIO0_85 */
 		>;
 	};
 
@@ -361,14 +361,14 @@
 	P2_29_A14_gpio: P2-29-A14-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01BC, PIN_INPUT, 7) /* (A14) SPI0_CLK.GPIO1_17 */
-			AM62X_IOPAD(0x00A4, PIN_INPUT, 7) /* (M22) GPMC0_DIR.GPIO0_40 */
+			AM62X_IOPAD(0x00A4, PIN_DISABLE, 7) /* (M22) GPMC0_DIR.GPIO0_40 */
 		>;
 	};
 
 	P2_29_M22_gpio: P2-29-M22-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00A4, PIN_INPUT, 7) /* (M22) GPMC0_DIR.GPIO0_40 */
-			AM62X_IOPAD(0x01BC, PIN_INPUT, 7) /* (A14) SPI0_CLK.GPIO1_17 */
+			AM62X_IOPAD(0x01BC, PIN_DISABLE, 7) /* (A14) SPI0_CLK.GPIO1_17 */
 		>;
 	};
 
@@ -381,14 +381,14 @@
 	P2_31_A13_gpio: P2-31-A13-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01B4, PIN_INPUT, 7) /* (A13) SPI0_CS0.GPIO1_15 */
-			AM62X_IOPAD(0x0170, PIN_INPUT, 7) /* (AA18) RGMII2_TD1.GPIO0_90 */
+			AM62X_IOPAD(0x0170, PIN_DISABLE, 7) /* (AA18) RGMII2_TD1.GPIO0_90 */
 		>;
 	};
 
 	P2_31_AA18_gpio: P2-31-AA18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0170, PIN_INPUT, 7) /* (AA18) RGMII2_TD1.GPIO0_90 */
-			AM62X_IOPAD(0x01B4, PIN_INPUT, 7) /* (A13) SPI0_CS0.GPIO1_15 */
+			AM62X_IOPAD(0x01B4, PIN_DISABLE, 7) /* (A13) SPI0_CS0.GPIO1_15 */
 		>;
 	};
 

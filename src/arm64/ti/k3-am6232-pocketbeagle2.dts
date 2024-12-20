@@ -20,7 +20,8 @@
 
 	aliases {
 		serial0 = &wkup_uart0;
-		serial2 = &main_uart6;
+		serial2 = &main_uart0;
+		serial8 = &main_uart6;
 		mmc0 = &sdhci0;
 		mmc1 = &sdhci1;
 		usb0 = &usb0;
@@ -425,7 +426,7 @@
 &main_uart6 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart6_pins_default>;
-	bootph-pre-ram;
+	bootph-all;
 	status = "ok";
 };
 

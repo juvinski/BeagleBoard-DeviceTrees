@@ -186,7 +186,6 @@
 		bootph-all;
 	};
 
-	/* First pad number is ALW package and second is AMC package */
 	main_uart0_pins_default: main-uart0-default-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14/A13) UART0_RXD */

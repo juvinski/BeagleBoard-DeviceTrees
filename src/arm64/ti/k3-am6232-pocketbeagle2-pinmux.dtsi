@@ -36,6 +36,12 @@
 };
 
 &main_pmx0 {
+	mspm0_nrst_pins_default: mspm0-nrst-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0254, PIN_INPUT, 7) /* (C20) USB0_DRVVBUS.GPIO1_50 */
+		>;
+	};
+
 	P1_02_E18_gpio: P1-02-E18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01A0, PIN_INPUT, 7) /* (E18) MCASP0_AXR0.GPIO1_10 */
@@ -427,6 +433,12 @@
 };
 
 &mcu_pmx0 {
+	mspm0_bsl_pins_default: mspm0-bsl-default-pins {
+		pinctrl-single,pins = <
+			AM62X_MCU_IOPAD(0x0004, PIN_INPUT, 7) /* (B8) MCU_SPI0_CS1.MCU_GPIO0_1 */
+		>;
+	};
+
 	P1_26_D6_gpio: P1-26-D6-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_MCU_IOPAD(0x0034, PIN_INPUT, 7) /* (D6) MCU_MCAN0_TX.MCU_GPIO0_13 */

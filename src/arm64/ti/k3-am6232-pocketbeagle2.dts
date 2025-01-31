@@ -303,12 +303,6 @@
 			AM62X_IOPAD(0x01b0, PIN_INPUT, 7) /* (A20) MCASP0_ACLKR.GPIO1_14 */
 		>;
 	};
-
-	mspm0_nrst_pins_default: mspm0-nrst-default-pins {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x0254, PIN_INPUT, 7) /* (C20) USB0_DRVVBUS.GPIO1_50 */
-		>;
-	};
 };
 
 &main_gpio0 {
@@ -436,12 +430,6 @@
 			AM62X_MCU_IOPAD(0x0050, PIN_INPUT_PULLUP, 0)	/* (A9) WKUP_I2C0_SDA */
 		>;
 		bootph-all;
-	};
-
-	mspm0_bsl_pins_default: mspm0-bsl-default-pins {
-		pinctrl-single,pins = <
-			AM62X_MCU_IOPAD(0x0004, PIN_INPUT, 7) /* (B8) MCU_SPI0_CS1.MCU_GPIO0_1 */
-		>;
 	};
 };
 

@@ -16,21 +16,21 @@
 
 	leds {
 		led-1 {
-			//label = "beaglebone:green:usr1";
+			label = "beaglebone:green:usr1";
 		};
 
 		led-2 {
-			//label = "beaglebone:green:usr2";
+			label = "beaglebone:green:usr2";
 		};
 
 		led-3 {
-			//label = "beaglebone:green:usr3";
+			label = "beaglebone:green:usr3";
 			function = LED_FUNCTION_ACTIVITY;
 			linux,default-trigger = "activity";
 		};
 
 		led-4 {
-			//label = "beaglebone:green:usr4";
+			label = "beaglebone:green:usr4";
 		};
 	};
 };

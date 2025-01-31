@@ -20,8 +20,13 @@
 
 	aliases {
 		serial0 = &wkup_uart0;
-		serial2 = &main_uart0;
-		serial4 = &main_uart6;
+		serial1 = &main_uart1;
+		serial2 = &main_uart6;
+		serial3 = &main_uart3;
+		serial4 = &main_uart4;
+		serial5 = &main_uart5;
+		serial6 = &main_uart2;
+		serial7 = &main_uart0;
 		mmc0 = &sdhci0;
 		mmc1 = &sdhci1;
 		usb0 = &usb0;
@@ -32,7 +37,7 @@
 	};
 
 	chosen {
-		stdout-path = "serial4:115200n8";
+		stdout-path = "serial2:115200n8";
 	};
 
 	memory@80000000 {

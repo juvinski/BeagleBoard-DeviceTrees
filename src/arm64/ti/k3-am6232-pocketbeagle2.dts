@@ -134,32 +134,29 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&led_pins_default>;
 
-		led-0 {
+		led-1 {
 			bootph-all;
 			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
 			function = LED_FUNCTION_HEARTBEAT;
-		};
-
-		led-1 {
-			bootph-all;
-			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
-			function = LED_FUNCTION_DISK_ACTIVITY;
-			linux,default-trigger = "mmc0";
+			default-state = "on";
 		};
 
 		led-2 {
 			bootph-all;
-			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
-			function = LED_FUNCTION_ACTIVITY;
-			linux,default-trigger = "activity";
+			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+			function = LED_FUNCTION_DISK_ACTIVITY;
+			linux,default-trigger = "mmc1";
 		};
 
 		led-3 {
 			bootph-all;
+			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
+		};
+
+		led-4 {
+			bootph-all;
 			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
-			function = LED_FUNCTION_DISK_ACTIVITY;
-			linux,default-trigger = "mmc1";
 		};
 	};
 };
@@ -413,7 +410,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart6_pins_default>;
 	bootph-all;
-	status = "ok";
+	status = "okay";
 };
 
 &mcu_pmx0 {
@@ -605,15 +602,6 @@
 	eeprom: eeprom@50 {
 		compatible = "atmel,24c32";
 		reg = <0x50>;
-	};
-
-	mspm0l1105: mspm0l1105@48 {
-		compatible = "ti,mspm0l1105";
-		reg = <0x48>;
-		bootloader-backdoor-gpios = <&mcu_gpio0 1 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&main_gpio1 50 GPIO_ACTIVE_HIGH>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&mspm0_bsl_pins_default &mspm0_nrst_pins_default>;
 	};
 };
 

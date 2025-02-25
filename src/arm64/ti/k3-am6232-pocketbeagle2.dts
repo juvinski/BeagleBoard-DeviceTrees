@@ -309,6 +309,13 @@
 			AM62X_IOPAD(0x01e8, PIN_OUTPUT, 8) /* (B17) I2C1_SCL.EHRPWM2_A */
 		>;
 	};
+
+	ecap2_pins_default: ecap2-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01a4, PIN_INPUT, 2) /* (B20) MCASP0_ACLKX.ECAP2_IN_APWM_OUT */
+			AM62X_IOPAD(0x0160, PIN_DISABLE, 7) /* (AD24) MDIO0_MDC.GPIO0_86 */
+		>;
+	};
 };
 
 &cpsw3g {
@@ -629,4 +636,10 @@
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&epwm2_pins_default>;
+};
+
+&ecap2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&ecap2_pins_default>;
 };

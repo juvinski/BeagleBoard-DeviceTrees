@@ -90,3 +90,7 @@
 		reg = <0x1c>;
         };
 };
+
+&main_gpio0 {
+	pinctrl-0 = <&main_gpio0_pins_default &P1_29_gpio>;
+};

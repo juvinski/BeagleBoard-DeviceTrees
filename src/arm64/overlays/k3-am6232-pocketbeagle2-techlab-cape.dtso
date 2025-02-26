@@ -79,3 +79,14 @@
 		gpios = <&main_gpio0 58 GPIO_ACTIVE_HIGH>;
 	};
 };
+
+&main_i2c2 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+        accel@1c {
+		compatible = "fsl,mma8453";
+		reg = <0x1c>;
+        };
+};

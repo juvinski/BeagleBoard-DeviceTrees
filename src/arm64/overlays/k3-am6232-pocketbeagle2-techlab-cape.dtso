@@ -70,4 +70,12 @@
 				<&techlab_gpio 13 GPIO_ACTIVE_LOW>,
 				<&techlab_gpio 14 GPIO_ACTIVE_LOW>;
 	};
+
+	buzzer-pwm {
+		#pwm-cells = <3>;
+		compatible = "pwm-gpio";
+		pinctrl-names = "default";
+		pinctrl-0 = <&P2_30_gpio>;
+		gpios = <&main_gpio0 58 GPIO_ACTIVE_HIGH>;
+	};
 };

@@ -31,8 +31,8 @@
 		usb0 = &usb0;
 		usb1 = &usb1;
 		i2c0 = &main_i2c0;
-		i2c1 = &wkup_i2c0;
-		i2c2 = &main_i2c2;
+		i2c1 = &main_i2c2;
+		i2c2 = &wkup_i2c0;
 	};
 
 	chosen {

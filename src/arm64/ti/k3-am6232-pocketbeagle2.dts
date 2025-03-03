@@ -540,15 +540,15 @@
 	};
 };
 
-&main_i2c2 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_i2c2_pins_default>;
+&main_i2c1 {
 	clock-frequency = <400000>;
 	bootph-all;
 	status = "okay";
 };
 
-&main_i2c3 {
+&main_i2c2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_i2c2_pins_default>;
 	clock-frequency = <400000>;
 	bootph-all;
 	status = "okay";

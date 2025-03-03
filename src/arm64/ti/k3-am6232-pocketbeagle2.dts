@@ -32,8 +32,9 @@
 		usb0 = &usb0;
 		usb1 = &usb1;
 		i2c0 = &main_i2c0;
-		i2c1 = &main_i2c2;
-		i2c2 = &wkup_i2c0;
+		i2c1 = &main_i2c1;
+		i2c2 = &main_i2c2;
+		i2c3 = &wkup_i2c0;
 	};
 
 	chosen {
@@ -542,6 +543,12 @@
 &main_i2c2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_i2c2_pins_default>;
+	clock-frequency = <400000>;
+	bootph-all;
+	status = "okay";
+};
+
+&main_i2c3 {
 	clock-frequency = <400000>;
 	bootph-all;
 	status = "okay";

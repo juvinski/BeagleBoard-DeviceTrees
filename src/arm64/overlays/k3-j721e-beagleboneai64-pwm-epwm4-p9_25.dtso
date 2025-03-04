@@ -30,7 +30,7 @@
 	};
 };
 
-&epwm4 {
+&main_ehrpwm4 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&P9_25_pwm>;
 	status = "okay";

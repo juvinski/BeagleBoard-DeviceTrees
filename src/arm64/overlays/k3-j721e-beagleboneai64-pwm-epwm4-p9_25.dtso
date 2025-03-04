@@ -18,14 +18,15 @@
 &{/chosen} {
 	overlays {
 		k3-j721e-beagleboneai64-pwm-epwm4-p9_25.kernel = __TIMESTAMP__;
+		p9_25.3040000.pwm = "k3-j721e-beagleboneai64-pwm-epwm4-p9_25.3040000.1.P9_25";
 	};
 };
 
 &main_pmx0 {
 	P9_25_pwm: P9-25-pwm-pins {
 		pinctrl-single,pins = <
-			J721E_IOPAD(0x1A4, PIN_OUTPUT, 6)
-			J721E_IOPAD(0x200, PIN_DISABLE, 7)
+			J721E_IOPAD(0x1A4, PIN_OUTPUT, 6) /* (W26) RGMII6_RXC.EHRPWM4_B */
+			J721E_IOPAD(0x200, PIN_DISABLE, 7) /* (AC4) UART1_CTSn.GPIO0_127 */
 		>;
 	};
 };

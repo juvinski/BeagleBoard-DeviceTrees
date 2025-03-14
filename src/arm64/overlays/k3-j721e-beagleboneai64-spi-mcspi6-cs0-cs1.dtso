@@ -62,7 +62,7 @@
 			J721E_IOPAD(0x74, PIN_OUTPUT, 4) /* (AC21) PRG1_PRU1_GPO7.SPI6_CS0 P9_17a */
 			J721E_IOPAD(0xa0, PIN_OUTPUT, 4) /* (AJ22) PRG1_PRU1_GPO18.SPI6_D0 MOSI P9_21a */
 			J721E_IOPAD(0xa4, PIN_INPUT, 4) /* (AH22) PRG1_PRU1_GPO19.SPI6_D1 MISO P9_18a */
-            /* J721E_IOPAD(0x28, PIN_OUTPUT, 4) */ /* (AG20) PRG1_PRU1_GPO8.SPI6_CS1 P9_23 */
+            J721E_IOPAD(0x28, PIN_OUTPUT, 4) /* (AG20) PRG1_PRU1_GPO8.SPI6_CS1 P9_23 */
 
             /* Disable SoC pins that share same BB header pins */
             /* These pins conflict */

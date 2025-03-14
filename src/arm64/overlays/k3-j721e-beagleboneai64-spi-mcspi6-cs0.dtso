@@ -1,9 +1,16 @@
 // SPDX-License-Identifier: GPL-2.0-only OR MIT
 /*
- * DT Overlay for pins P9_28(cs0), P9_31(clk), P9_30(MOSI), P9_29B(MISO) SPI6 connections within the expansion header.
+ * DT Overlay for SPI6 pins P9_17(cs0), P9_22(clk), P9_21(MOSI), P9_18(MISO).
  *
  * Copyright (C) 2023 Texas Instruments Incorporated - https://www.ti.com/
  *
+ */
+
+/* WARNING!!!
+ * This overlay will not mux if there are pin conflicts. For example, by default i2c6 is enabled taking
+ * pins P9_17 and P9_18.
+ *
+ * Look for errors in `sudo beagle-version \| grep UBOOT`
  */
 
 /dts-v1/;
@@ -68,6 +75,10 @@
 	};
 };
 
+/* Most of the stuff in this section is here for the spidev linux driver. For control from
+ * from a DSP or R5 core, only the status and pinctrl parts matter.
+ *
+ */
 &main_spi6 {
     #address-cells = <1>;
     #size-cells = <0>;
@@ -77,10 +88,9 @@
     ti,pindir-d0-out-d1-in;
     status = "okay";
 
-	/* THIS IS FOR SPIDEV, to see device at /dev/bone/spi, first run `sudo modprobe spidev` */
-	/* When controlling SPI from outside linux, you may want to delete this spidev stuff */
+    /* When controlling SPI from outside linux, you may want to delete this spidev stuff */
     channel@0 {
-        symlink = "bone/spi/6.0";
+        symlink = "bone/spi/6.0"; /* /dev/bone/spi/6.0 */
         compatible = "rohm,dh2228fv";
         reg = <0>; /* CE0 */
         spi-max-frequency = <125000000>;

@@ -70,7 +70,7 @@
 	};
 };
 
-/* Most of the stuff in this section is only here for the spidev linux driver. For control from
+/* Most of the stuff in this section is here for the spidev linux driver. For control from
  * from a DSP or R5 core, only the status and pinctrl parts matter.
  *
  */

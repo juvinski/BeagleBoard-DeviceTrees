@@ -37,6 +37,12 @@
 	};
 };
 
+/* 
+ * Most of the stuff in this section is here for the spidev linux driver. For control from
+ * from a DSP or R5 core, only the status and pinctrl parts matter.
+ *
+ * Make sure to load the spidev driver to control SPI from linux.
+ */
 &main_spi7 {
     #address-cells = <1>;
     #size-cells = <0>;
@@ -46,8 +52,7 @@
     ti,pindir-d0-out-d1-in;
     status = "okay";
 
-	/* THIS IS FOR SPIDEV, to see device at /dev/bone/spi, first run `sudo modprobe spidev` */
-	/* When controlling SPI from outside linux, you may want to delete this spidev stuff */
+    /* When controlling SPI from outside linux, you may want to delete this spidev stuff */
     channel@0 {
         symlink = "bone/spi/7.0";
         compatible = "rohm,dh2228fv";

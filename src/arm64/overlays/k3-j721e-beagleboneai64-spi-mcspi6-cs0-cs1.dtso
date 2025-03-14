@@ -14,7 +14,7 @@
 /* 
  *WARNING!!!
  * This overlay will not mux if there are pin conflicts. For example, by default i2c6 is enabled taking
- * pins P9_17 and P9_18. To stop pin conflicts this overlay disables i2c6.
+ * pins P9_17 and P9_18. To stop pin conflicts, this overlay disables i2c6.
  *
  * Look for errors in `sudo beagle-version \| grep UBOOT`
  */
@@ -44,27 +44,8 @@
  * in the following spreadsheet. To figure out mux modes, look at row 10.
  * https://drive.google.com/file/d/15NLaUeMBy-iT8s6rFrP4Esf0Qh57T4xu/view?pli=1
  *
- * To figure out the addresses of SoC pads, look at table "Table 5-125. Pin Multiplexing" in the TDA4VM Processors datasheet
+ * To figure out the addresses of SoC pads, look at table "Table 5-125. Pin Multiplexing" in the TDA4VM Processor datasheet
  * https://www.ti.com/lit/ds/symlink/tda4vm.pdf?ts=1741890214437&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTDA4VM
- *
- *
- * ~~ Walkthrough of process to figure out muxing ~~
- *
- * From the spreadsheet we see that pad AC22 is the first pad on BB header pin P9_22. AC22 is thus known as P9_22a. The alternative
- * pad, U29, is known as P9_22b. From Looking at the TDA4VM datasheet, we see that AC22(aka P9_22a) has the address 0x00011C09C. For 
- * the J721E_IOPAD() pin-mux macro, we need the bottom 24bits of the address, so 0x09c, or 0x9c. 
- * 
- * To mux AC22(aka P9_22a) to be SPI6_CLK, as figured out from the spreadsheet, we need to set AC22 to mux-mode 4. And since
- * a SPI clock is an output signal, the pin should be put set to PIN_OUTPUT mode.
- * So `J721E_IOPAD(0x9c, PIN_OUTPUT, 4)`
- * 
- * We will also need to disable the second SoC pad that shares the same BB header pin. The SoC pad known as pin P9_22b, or 
- * pad U29. Using the same process as walked through with pad AC22, you get the following:
- * `J721E_IOPAD(0x170, PIN_DISABLE, 7)`
- *
- * So to mux SPI6_CLK on BB pin P9_22:
- * J721E_IOPAD(0x9c, PIN_OUTPUT, 4)
- * J721E_IOPAD(0x170, PIN_DISABLE, 7)
  *
 */
 &main_pmx0 {
@@ -90,6 +71,12 @@
 
 /*
  * SPI6 controller configuration with support for two chip selects (CS0 and CS1).
+ *
+ *
+ * Most of the stuff in this section is here for the spidev linux driver. For control from
+ * from a DSP or R5 core, only the status and pinctrl parts matter.
+ *
+ * Make sure to load the spidev driver to control SPI from linux.
  */
 &main_spi6 {
     #address-cells = <1>;
@@ -105,7 +92,7 @@
 
     /* Channel for SPI6_CS0 */
     channel@0 {
-        symlink = "bone/spi/6.0";
+        symlink = "bone/spi/6.0"; /* /dev/bone/spi/6.0 */
         compatible = "rohm,dh2228fv";
         reg = <0>; /* CE0 */
         spi-max-frequency = <125000000>;
@@ -113,7 +100,7 @@
 
     /* Channel for SPI6_CS1 */
     channel@1 {
-        symlink = "bone/spi/6.1";
+        symlink = "bone/spi/6.1"; /* /dev/bone/spi/6.1 */
         compatible = "rohm,dh2228fv";
         reg = <1>;  /* CE1 */
         spi-max-frequency = <125000000>;

@@ -31,7 +31,7 @@
  *
 */
 &main_pmx0 {
-    mcspi3_cs_one: mcspi3-cs0-pins {
+    mcspi3_cs_zero: mcspi3-cs0-pins {
         pinctrl-single,pins = <            
             /* Used TI SysConfig app to generate these, had manually adjust output modes */
             J721E_IOPAD(0x144, PIN_OUTPUT, 4) /* (Y25) PRG0_PRU1_GPO17.SPI3_CLK P8_46 */
@@ -55,7 +55,7 @@
     #address-cells = <1>;
     #size-cells = <0>;
     pinctrl-names = "default";
-    pinctrl-0 = <&mcspi3_cs_one>;
+    pinctrl-0 = <&mcspi3_cs_zero>;
     ti,spi-num-cs = <1>; /* With this number wrong, no spi device would get created, error seen with `sudo journalctl -k` */
     ti,pindir-d0-out-d1-in; /* d1 is not really an input, the pin is not muxed */
     status = "okay";

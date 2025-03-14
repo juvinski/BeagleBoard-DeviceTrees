@@ -84,7 +84,7 @@
     status = "okay";
 
 	/* When controlling SPI from outside linux, you may want to delete this spidev stuff */
-    channel@0 {
+    channel@1 {
         symlink = "bone/spi/6.1";
         compatible = "rohm,dh2228fv";
         reg = <1>; /* CE1 */

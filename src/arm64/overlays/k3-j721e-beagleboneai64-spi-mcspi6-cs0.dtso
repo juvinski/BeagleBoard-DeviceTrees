@@ -6,9 +6,10 @@
  *
  */
 
-/* WARNING!!!
+/* 
+ * WARNING!!!
  * This overlay will not mux if there are pin conflicts. For example, by default i2c6 is enabled taking
- * pins P9_17 and P9_18.
+ * pins P9_17 and P9_18. To stop pin conflicts this overlay disables i2c6.
  *
  * Look for errors in `sudo beagle-version \| grep UBOOT`
  */
@@ -27,6 +28,11 @@
                 k3-j721e-beagleboneai64-spi-mcspi6-cs0.kernel = __TIMESTAMP__;
                 mcspi6.2160000.spi = "k3-j721e-beagleboneai64-spi-mcspi6-cs0.2160000";
         };
+};
+
+/* Disable i2c6 to free up pins p9_17 and p9_18 */
+&main_i2c6 {
+        status = "disable";
 };
 
 /* To figure out which SoC pad numbers go with which BB header pins, look at columns A and B

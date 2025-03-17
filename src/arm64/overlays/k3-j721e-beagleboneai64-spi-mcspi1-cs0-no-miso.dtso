@@ -54,6 +54,7 @@
 
             /* Disable SoC pins that share same BB header pins */
             J721E_IOPAD(0x30, PIN_DISABLE, 7) /* (AF24) disable P9_26b */
+            J721E_IOPAD(0x64, PIN_DISABLE, 7) /* (AD23) disable P8_35a  */
             J721E_IOPAD(0x34, PIN_DISABLE, 7) /* (AJ24) disable P9_24b */
             /* J721E_IOPAD(0xA4, PIN_DISABLE, 7) (0xA4) disable P9_18a .... for if we are using P9_18b */
         >;

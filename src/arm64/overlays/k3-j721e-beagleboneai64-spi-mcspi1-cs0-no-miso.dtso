@@ -26,7 +26,7 @@
 &{/chosen} {
         overlays {
                 k3-j721e-beagleboneai64-spi-mcspi1-cs0.kernel = __TIMESTAMP__;
-                mcspi1.2130000.spi = "k3-j721e-beagleboneai64-spi-mcspi1-cs0.2130000";
+                mcspi1.2110000.spi = "k3-j721e-beagleboneai64-spi-mcspi1-cs0.2110000";
         };
 };
 

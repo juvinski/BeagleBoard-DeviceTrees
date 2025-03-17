@@ -64,7 +64,7 @@
 
 	/* When controlling SPI from outside linux, you may want to delete this spidev stuff */
     channel@1 {
-        symlink = "bone/spi/6.1"; /* /dev/bone/spi/6.1 */
+        symlink = "bone/spi/6.1_no_miso"; /* /dev/bone/spi/6.1_no_miso */
         compatible = "rohm,dh2228fv";
         reg = <1>; /* CE1 */
         spi-max-frequency = <125000000>;

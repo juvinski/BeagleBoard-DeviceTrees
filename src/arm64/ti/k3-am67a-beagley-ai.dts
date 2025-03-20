@@ -320,6 +320,10 @@
 	phy-handle = <&cpsw3g_phy0>;
 };
 
+&cpsw_port2 {
+	status = "disabled";
+};
+
 &epwm2 {
 	status = "okay";
 };

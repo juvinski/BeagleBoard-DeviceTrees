@@ -50,6 +50,17 @@
 	};
 };
 
+&wkup_pmx0 {
+	pinctrl-single,gpio-range =
+		<&wkup_pmx_range 44 16 PIN_GPIO_RANGE_IOPAD>,
+		<&wkup_pmx_range 0 44 PIN_GPIO_RANGE_IOPAD>,
+		<&wkup_pmx_range 60 24 PIN_GPIO_RANGE_IOPAD>;
+
+	wkup_pmx_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+};
+
 &main_gpio0 {
 	gpio-line-names = "", "", "", "", "P8_18", /* 0-4 */
 			  "", "", "", "", "", /* 5-9 */

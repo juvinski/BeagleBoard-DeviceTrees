@@ -290,8 +290,6 @@
 		interrupts = <103>, <104>, <105>, <106>, <107>, <108>;
 		interrupt-controller;
 		#interrupt-cells = <2>;
-		gpio-ranges = <&wkup_pmx0 0 44 16>, <&wkup_pmx0 16 0 44>,
-				<&wkup_pmx0 60 60 24>;
 		ti,ngpio = <84>;
 		ti,davinci-gpio-unbanked = <0>;
 		power-domains = <&k3_pds 113 TI_SCI_PD_EXCLUSIVE>;

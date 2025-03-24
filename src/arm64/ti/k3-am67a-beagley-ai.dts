@@ -321,10 +321,6 @@
 	status = "okay";
 };
 
-&cpsw_port2 {
-	status = "disabled";
-};
-
 &main_gpio0 {
 	status = "okay";
 };

@@ -35,6 +35,8 @@
 		i2c1 = &main_i2c1;
 		i2c2 = &main_i2c2;
 		i2c3 = &wkup_i2c0;
+		spi0 = &main_spi2;
+		spi1 = &main_spi0;
 	};
 
 	chosen {

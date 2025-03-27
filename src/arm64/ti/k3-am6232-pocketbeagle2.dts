@@ -327,14 +327,14 @@
 };
 
 &main_gpio0 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_gpio0_pins_default>;
+	//pinctrl-names = "default";
+	//pinctrl-0 = <&main_gpio0_pins_default>;
 	status = "okay";
 };
 
 &main_gpio1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_gpio1_pins_default>;
+	//pinctrl-names = "default";
+	//pinctrl-0 = <&main_gpio1_pins_default>;
 	status = "okay";
 };
 

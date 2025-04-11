@@ -72,7 +72,7 @@
 				<&techlab_gpio 14 GPIO_ACTIVE_LOW>;
 	};
 
-	buzzer-pwm {
+	buzzer_pwm: buzzer-pwm {
 		#pwm-cells = <3>;
 		compatible = "pwm-gpio";
 		pinctrl-names = "default";
@@ -97,6 +97,11 @@
 			gpios = <&main_gpio0 62 0>;
         		linux,code = <KEY_RIGHT>;
 		};
+	};
+
+	techlab-buzzer {
+        	compatible = "pwm-beeper";
+        	pwms = <&buzzer_pwm 0 50000 0>;
 	};
 };
 

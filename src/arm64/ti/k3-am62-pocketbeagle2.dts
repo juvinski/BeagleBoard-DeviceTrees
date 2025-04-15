@@ -397,8 +397,9 @@
 };
 
 &usb0 {
-	bootph-all;
+	/* This is a Type-C socket, but wired as USB 2.0 */
 	dr_mode = "peripheral";
+	bootph-all;
 };
 
 &usbss1 {
@@ -407,6 +408,7 @@
 };
 
 &usb1 {
+	/* Compatible with original PocketBeagle, expansion boards assumed this was pre-setup as host */
 	dr_mode = "host";
 	pinctrl-names = "default";
 	pinctrl-0 = <&usb1_pins_default>;

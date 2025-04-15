@@ -25,6 +25,7 @@
 		mmc1 = &sdhci1;
 		usb0 = &usb0;
 		usb1 = &usb1;
+		i2c0 = &main_i2c0;
 		i2c2 = &main_i2c2;
 		i2c3 = &wkup_i2c0;
 	};

@@ -283,18 +283,6 @@
 	};
 };
 
-&cpsw3g {
-	status = "disabled";
-};
-
-&cpsw_port1 {
-	status = "disabled";
-};
-
-&cpsw_port2 {
-	status = "disabled";
-};
-
 &epwm2 {
 	status = "okay";
 	pinctrl-names = "default";
@@ -337,12 +325,14 @@
 	status = "okay";
 
 	ad7291: adc@20 {
+		/* Emulated with MSPM0L1105 */
 		compatible = "adi,ad7291";
 		reg = <0x20>;
 		vref-supply = <&adc_vref>;
 	};
 
 	eeprom: eeprom@50 {
+		/* Emulated with MSPM0L1105 */
 		compatible = "atmel,24c32";
 		reg = <0x50>;
 	};

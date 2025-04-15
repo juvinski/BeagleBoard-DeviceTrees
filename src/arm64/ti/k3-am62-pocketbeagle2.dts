@@ -151,32 +151,35 @@
 		bootph-all;
 
 		led-1 {
-			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
+			function = LED_FUNCTION_HEARTBEAT;
 			color = <LED_COLOR_ID_GREEN>;
 			linux,default-trigger = "heartbeat";
-			function = LED_FUNCTION_HEARTBEAT;
+			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 			bootph-all;
 		};
 
 		led-2 {
-			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
-			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_DISK_ACTIVITY;
+			color = <LED_COLOR_ID_GREEN>;
 			linux,default-trigger = "mmc1";
+			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
 			bootph-all;
 		};
 
 		led-3 {
-			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+			function = LED_FUNCTION_INDICATOR;
 			color = <LED_COLOR_ID_GREEN>;
+			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
 			bootph-all;
 		};
 
 		led-4 {
-			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
-			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_INDICATOR;
+			color = <LED_COLOR_ID_GREEN>;
+			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
 			bootph-all;
 		};

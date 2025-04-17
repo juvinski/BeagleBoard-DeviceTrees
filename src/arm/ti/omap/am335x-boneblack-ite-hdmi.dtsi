@@ -6,6 +6,19 @@
 #include <dt-bindings/display/tda998x.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 
+/ {
+	connector-hdmi {
+		compatible = "hdmi-connector";
+		label = "hdmi";
+		type = "d";
+		port {
+			hdmi_connector_in: endpoint {
+				remote-endpoint = <&it66122_out>;
+			};
+		};
+	};
+};
+
 &am33xx_pinmux {
 	nxp_hdmi_bonelt_pins: nxp-hdmi-bonelt-pins {
 		pinctrl-single,pins = <
@@ -96,6 +109,14 @@
 
 				hdmi_0: endpoint {
 					remote-endpoint = <&lcdc_0>;
+				};
+			};
+
+			port@1 {
+				reg = <1>;
+
+				it66122_out: endpoint {
+					remote-endpoint = <&hdmi_connector_in>;
 				};
 			};
 		};

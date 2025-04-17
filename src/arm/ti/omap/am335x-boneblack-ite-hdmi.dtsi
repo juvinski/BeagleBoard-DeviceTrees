@@ -84,16 +84,17 @@
 &i2c0 {
 	it66122: bridge-hdmi@4c {
 		compatible = "ite,it66122";
+		reg = <0x4c>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&nxp_hdmi_bonelt_pins>;
 
-		//vcn33-supply = <&mt6358_vcn33_wifi_reg>;
+		vcn33-supply = <&vmmcsd_fixed>;
 		//vcn18-supply = <&mt6358_vcn18_reg>;
 		//vrf12-supply = <&mt6358_vrf12_reg>;
 		//reset-gpios = <&pio 160 GPIO_ACTIVE_LOW>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
-		reg = <0x4c>;
+		#sound-dai-cells = <0>;
 
 		/* Convert 24bit BGR to RGB, e.g. cross red and blue wiring */
 		/* video-ports = <0x234501>; */

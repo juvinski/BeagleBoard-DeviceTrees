@@ -93,7 +93,7 @@
 		//vrf12-supply = <&mt6358_vrf12_reg>;
 		//reset-gpios = <&pio 160 GPIO_ACTIVE_LOW>;
 		interrupt-parent = <&gpio1>;
-		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
+		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
 		#sound-dai-cells = <0>;
 
 		ports {

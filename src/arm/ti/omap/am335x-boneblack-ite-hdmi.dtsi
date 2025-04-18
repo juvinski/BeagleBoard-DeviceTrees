@@ -50,6 +50,7 @@
 			AM33XX_PADCONF(AM335X_PIN_LCD_PCLK, PIN_OUTPUT_PULLDOWN, MUX_MODE0)
 			AM33XX_PADCONF(AM335X_PIN_LCD_AC_BIAS_EN, PIN_OUTPUT_PULLDOWN, MUX_MODE0)
 			AM33XX_PADCONF(AM335X_PIN_GPMC_A9, PIN_INPUT_PULLUP, MUX_MODE7)	/* HDMI_INT */
+			AM33XX_PADCONF(AM335X_PIN_GPMC_A10, PIN_OUTPUT, MUX_MODE7) /* reset */
 		>;
 	};
 
@@ -91,7 +92,7 @@
 		vcn33-supply = <&vmmcsd_fixed>;
 		vcn18-supply = <&it66122_vcn18_fixed>;
 		//vrf12-supply = <&mt6358_vrf12_reg>;
-		//reset-gpios = <&pio 160 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&gpio1 26 GPIO_ACTIVE_LOW>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
 		#sound-dai-cells = <0>;

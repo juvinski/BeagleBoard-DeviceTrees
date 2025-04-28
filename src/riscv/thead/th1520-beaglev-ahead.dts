@@ -312,7 +312,11 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&wifi_pins>;
 
-	wifi@1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	brcmf: wifi@1 {
+		status = "okay";
 		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
 		reg = <1>;
 		interrupt-parent = <&gpio2>;

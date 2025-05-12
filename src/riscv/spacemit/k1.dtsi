@@ -346,7 +346,7 @@
 		dma-noncoherent;
 		ranges;
 
-		syscon_apbc: system-control@d4015000 {
+		syscon_apbc: system-controller@d4015000 {
 			compatible = "spacemit,k1-syscon-apbc";
 			reg = <0x0 0xd4015000 0x0 0x1000>;
 			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
@@ -503,7 +503,7 @@
 			#reset-cells = <1>;
 		};
 
-		pll: system-control@d4090000 {
+		pll: clock-controller@d4090000 {
 			compatible = "spacemit,k1-pll";
 			reg = <0x0 0xd4090000 0x0 0x1000>;
 			clocks = <&vctcxo_24m>;
@@ -511,7 +511,7 @@
 			#clock-cells = <1>;
 		};
 
-		syscon_apmu: system-control@d4282800 {
+		syscon_apmu: system-controller@d4282800 {
 			compatible = "spacemit,k1-syscon-apmu";
 			reg = <0x0 0xd4282800 0x0 0x400>;
 			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,

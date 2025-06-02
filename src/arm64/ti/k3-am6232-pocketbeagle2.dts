@@ -56,6 +56,14 @@
 		#size-cells = <2>;
 		ranges;
 
+		/* global cma region */
+		linux,cma {
+			compatible = "shared-dma-pool";
+			reusable;
+			size = <0x00 0x8000000>;
+			linux,cma-default;
+		};
+
 		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
 			compatible = "shared-dma-pool";
 			reg = <0x00 0x9cb00000 0x00 0x100000>;
@@ -70,11 +78,13 @@
 
 		secure_tfa_ddr: tfa@9e780000 {
 			reg = <0x00 0x9e780000 0x00 0x80000>;
+			alignment = <0x1000>;
 			no-map;
 		};
 
 		secure_ddr: optee@9e800000 {
 			reg = <0x00 0x9e800000 0x00 0x01800000>;
+			alignment = <0x1000>;
 			no-map;
 		};
 
@@ -164,12 +174,15 @@
 			color = <LED_COLOR_ID_GREEN>;
 			linux,default-trigger = "mmc1";
 			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
 			bootph-all;
 		};
 
 		led-3 {
+			function = LED_FUNCTION_INDICATOR;
 			color = <LED_COLOR_ID_GREEN>;
 			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
 			bootph-all;
 		};
 

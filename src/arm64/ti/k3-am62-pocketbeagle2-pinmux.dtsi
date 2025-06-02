@@ -2,15 +2,14 @@
 /*
  * https://www.beagleboard.org/boards/pocketbeagle-2
  *
- * Copyright (C) 2022-2024 Texas Instruments Incorporated - https://www.ti.com/
- * Copyright (C) 2022-2024 Robert Nelson, BeagleBoard.org Foundation
+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
+ * Copyright (C) 2025 Robert Nelson, BeagleBoard.org Foundation
  */
 
 #include <dt-bindings/gpio/gpio.h>
 
 / {
 	chosen {
-		base_dtb = "k3-am6232-pocketbeagle2.dts";
 		base_dtb_timestamp = __TIMESTAMP__;
 	};
 

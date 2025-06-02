@@ -15,7 +15,7 @@
 #include "k3-am62-pocketbeagle2-pinmux.dtsi"
 
 / {
-	compatible = "beagle,am6232-pocketbeagle2", "ti,am625";
+	compatible = "beagle,am62-pocketbeagle2", "ti,am625";
 	model = "BeagleBoard.org PocketBeagle2";
 
 	aliases {

@@ -535,9 +535,3 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&ecap2_pins_default>;
 };
-
-&main_spi0 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_spi0_pins_default>;
-};

@@ -644,3 +644,9 @@
 		pinctrl-0 = <&mspm0_bsl_pins_default &mspm0_nrst_pins_default>;
 	};
 };
+
+&main_i2c1 {
+	clock-frequency = <400000>;
+	bootph-all;
+	status = "okay";
+};

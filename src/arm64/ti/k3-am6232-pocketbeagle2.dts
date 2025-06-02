@@ -296,11 +296,6 @@
 	};
 };
 
-&mcu_gpio0 {
-	pinctrl-names = "default";
-	status = "okay";
-};
-
 &epwm2 {
 	status = "okay";
 	pinctrl-names = "default";

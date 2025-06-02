@@ -46,6 +46,18 @@
 	};
 };
 
+&cpsw3g {
+	status = "disabled";
+};
+
+&cpsw_port1 {
+	status = "disabled";
+};
+
+&cpsw_port2 {
+	status = "disabled";
+};
+
 &main_pmx0 {
 	main_mmc0_pins_default: main-mmc0-default-pins {
 		pinctrl-single,pins = <

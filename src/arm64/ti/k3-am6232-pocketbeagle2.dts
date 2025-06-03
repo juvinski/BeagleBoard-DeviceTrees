@@ -443,7 +443,6 @@
 	status = "okay";
 
 	tps65219: pmic@30 {
-		status = "disabled";
 		compatible = "ti,tps65219";
 		reg = <0x30>;
 		buck1-supply = <&vsys_5v0>;

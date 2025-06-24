@@ -24,7 +24,9 @@
 	aliases {
 		serial0 = &wkup_uart0;
 		serial2 = &main_uart0;
+		serial6 = &main_uart6;
 		mmc1 = &sdhci1;
+		mmc2 = &sdhci2;
 		rtc0 = &rtc;
 	};
 
@@ -332,6 +334,15 @@
 			J722S_IOPAD(0x0014, PIN_INPUT, 7) /* (L26) OSPI0_D2.GPIO0_5 */
 		>;
 	};
+
+	main_uart6_pins_default: main-uart6-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0028, PIN_INPUT, 3)	/* (M27) OSPI0_D7.UART6_CTSn */
+			J722S_IOPAD(0x0024, PIN_OUTPUT, 3)	/* (N27) OSPI0_D6.UART6_RTSn */
+			J722S_IOPAD(0x001c, PIN_INPUT, 3)	/* (L21) OSPI0_D4.UART6_RXD */
+			J722S_IOPAD(0x0020, PIN_OUTPUT, 3)	/* (M26) OSPI0_D5.UART6_TXD */
+		>;
+	};
 };
 
 &cpsw3g {
@@ -377,6 +388,20 @@
 	pinctrl-0 = <&main_uart0_pins_default>;
 	bootph-all;
 	status = "okay";
+};
+
+&main_uart6 {
+	symlink = "board/bluetooth/uart";
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_uart6_pins_default>;
+	bootph-all;
+	status = "okay";
+
+	bluetooth {
+		compatible = "ti,cc33xx-bt";
+		cc33xx-supply = <&wlan_en>;
+		max-speed = <115200>;
+	};
 };
 
 &mcu_pmx0 {

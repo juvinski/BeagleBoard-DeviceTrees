@@ -20,7 +20,10 @@
 &{/aliases} {
 	rtc0 = &rv3028;
 	/* find /sys/firmware/devicetree/ | grep rtc@ */
+	/* rtc-ds1307 beagley-ai battery connector */
 	rtc1 = "/bus@f0000/bus@b00000/i2c@2b200000/rtc@68";
+	/* rtc-ti-k3 k3 internal */
+	rtc2 = "/bus@f0000/bus@b00000/rtc@2b1f0000";
 };
 
 &mcu_i2c0 {

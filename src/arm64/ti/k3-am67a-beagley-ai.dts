@@ -24,6 +24,7 @@
 	aliases {
 		serial0 = &wkup_uart0;
 		serial2 = &main_uart0;
+		serial3 = &main_uart1;
 		serial6 = &main_uart6;
 		mmc1 = &sdhci1;
 		mmc2 = &sdhci2;
@@ -265,6 +266,14 @@
 		bootph-all;
 	};
 
+	main_uart1_pins_default: main-uart1-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01ac, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
+			J722S_IOPAD(0x01b0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
+		>;
+		bootph-all;
+	};
+
 	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0244, PIN_OUTPUT, 7) /* (A24) MMC1_SDWP.GPIO1_49 */
@@ -410,6 +419,14 @@
 &main_uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart0_pins_default>;
+	bootph-all;
+	status = "okay";
+};
+
+&main_uart1 {
+	symlink = "ttyAMA0";
+	//pinctrl-names = "default";
+	//pinctrl-0 = <&main_uart1_pins_default>;
 	bootph-all;
 	status = "okay";
 };

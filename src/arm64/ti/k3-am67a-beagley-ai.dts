@@ -28,6 +28,7 @@
 		mmc1 = &sdhci1;
 		mmc2 = &sdhci2;
 		rtc0 = &rtc;
+		i2c1 = &mcu_i2c0;
 	};
 
 	chosen {
@@ -501,6 +502,14 @@
 		>;
 		bootph-all;
 	};
+
+	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0044, PIN_INPUT_PULLUP, 0) /* (B13) MCU_I2C0_SCL */
+			J722S_MCU_IOPAD(0x0048, PIN_INPUT_PULLUP, 0) /* (E11) MCU_I2C0_SDA */
+		>;
+		bootph-all;
+	};
 };
 
 &wkup_uart0 {
@@ -509,6 +518,15 @@
 	pinctrl-0 = <&wkup_uart0_pins_default>;
 	bootph-all;
 	status = "reserved";
+};
+
+&mcu_i2c0 {
+	symlink = "hat/mcu_i2c0";
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcu_i2c0_pins_default>;
+	clock-frequency = <100000>;
+	bootph-all;
+	status = "okay";
 };
 
 &wkup_i2c0 {

@@ -24,8 +24,8 @@
 	pps {
 		compatible = "pps-gpio";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_18_gpio>;
+		pinctrl-0 = <&hat_12_gpio>;
 
-		gpios = <&mcu_gpio0 10 GPIO_ACTIVE_HIGH>;
+		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
 	};
 };

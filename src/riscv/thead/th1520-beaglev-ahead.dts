@@ -37,7 +37,7 @@
 
 	memory@0 {
 		device_type = "memory";
-		reg = <0x0 0x00000000 0x1 0x00000000>;
+		reg = <0x0  0x00000000  0x1 0x00000000>;
 	};
 
 	leds {
@@ -122,10 +122,10 @@
 	led_pins: led-0 {
 		led-pins {
 			pins = "AUDIO_PA8",  /* GPIO4_8 */
-				   "AUDIO_PA9",  /* GPIO4_9 */
-				   "AUDIO_PA10", /* GPIO4_10 */
-				   "AUDIO_PA11", /* GPIO4_11 */
-				   "AUDIO_PA12"; /* GPIO4_12 */
+			       "AUDIO_PA9",  /* GPIO4_9 */
+			       "AUDIO_PA10", /* GPIO4_10 */
+			       "AUDIO_PA11", /* GPIO4_11 */
+			       "AUDIO_PA12"; /* GPIO4_12 */
 			bias-disable;
 			drive-strength = <3>;
 			input-disable;
@@ -165,11 +165,11 @@
 	gmac0_pins: gmac0-0 {
 		tx-pins {
 			pins = "GMAC0_TX_CLK",
-				   "GMAC0_TXEN",
-				   "GMAC0_TXD0",
-				   "GMAC0_TXD1",
-				   "GMAC0_TXD2",
-				   "GMAC0_TXD3";
+			       "GMAC0_TXEN",
+			       "GMAC0_TXD0",
+			       "GMAC0_TXD1",
+			       "GMAC0_TXD2",
+			       "GMAC0_TXD3";
 			function = "gmac0";
 			bias-disable;
 			drive-strength = <25>;
@@ -180,11 +180,11 @@
 
 		rx-pins {
 			pins = "GMAC0_RX_CLK",
-				   "GMAC0_RXDV",
-				   "GMAC0_RXD0",
-				   "GMAC0_RXD1",
-				   "GMAC0_RXD2",
-				   "GMAC0_RXD3";
+			       "GMAC0_RXDV",
+			       "GMAC0_RXD0",
+			       "GMAC0_RXD1",
+			       "GMAC0_RXD2",
+			       "GMAC0_RXD3";
 			function = "gmac0";
 			bias-disable;
 			drive-strength = <1>;

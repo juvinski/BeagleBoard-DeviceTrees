@@ -34,12 +34,12 @@
 
 	mailbox@50000000 {
 		compatible = "microchip,miv-ihc-rtl-v2";
-		microchip,ihc-chan-disabled-mask = /bits/ 16 <0>;
 		reg = <0x0 0x50000000 0x0 0x1c000>;
 		interrupt-parent = <&plic>;
 		interrupts = <180>, <179>, <178>, <177>;
 		interrupt-names = "hart-1", "hart-2", "hart-3", "hart-4";
 		#mbox-cells = <1>;
+		microchip,ihc-chan-disabled-mask = /bits/ 16 <0>;
 		status = "disabled";
 	};
 
@@ -74,7 +74,7 @@
 		};
 	};
 
-	refclk_ccc: cccrefclk {
+	refclk_ccc: clock-cccref {
 		compatible = "fixed-clock";
 		#clock-cells = <0>;
 	};

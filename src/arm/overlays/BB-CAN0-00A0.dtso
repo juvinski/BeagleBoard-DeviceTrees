@@ -42,3 +42,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&bb_dcan0_pins>;
 };
+
+&i2c2 {
+	status = "disabled";
+};

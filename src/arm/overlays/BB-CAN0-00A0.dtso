@@ -31,8 +31,8 @@
 &am33xx_pinmux {
 	bb_dcan0_pins: pinmux_dcan0_pins {
 		pinctrl-single,pins = <
-			0x17C (PIN_INPUT_PULLUP | MUX_MODE2)	/* P9_19: i2c2_scl.d_can0_rx */
-			0x178 (PIN_OUTPUT_PULLUP | MUX_MODE2)	/* P9_20: i2c2_sda.d_can0_tx */
+			AM33XX_PADCONF(AM335X_PIN_UART1_RTSN, PIN_INPUT_PULLUP, MUX_MODE2)	/* P9_19: i2c2_scl.d_can0_rx */
+			AM33XX_PADCONF(AM335X_PIN_UART1_CTSN, PIN_OUTPUT_PULLUP, MUX_MODE2)	/* P9_20: i2c2_sda.d_can0_tx */
 		>;
 	};
 };

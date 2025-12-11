@@ -36,4 +36,5 @@
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&eqep0_pins>;
+	symlink = "bone/eqep0";
 };

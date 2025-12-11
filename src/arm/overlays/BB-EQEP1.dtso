@@ -32,7 +32,7 @@
 	status = "okay";
 };
 
-&ehrpwm1 {
+&eqep1 {
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&eqep1_pins>;
